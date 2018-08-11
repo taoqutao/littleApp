@@ -1,0 +1,21 @@
+/* index.wxss */
+.text {
+    display: inline-block;
+    font-size: 24rpx;
+    border: 1px solid blue;
+    padding: 10rpx;
+    margin: 10rpx 0 6rpx 10rpx;
+}
+.page-item{
+    font-size: 24rpx;
+    display: inline-block;
+    width: 25%;
+    border: 1px solid #0a2;
+    text-align: center;
+    line-height: 50rpx;
+    margin: 10rpx;
+}
+.finish{
+  background: #0a2 !important;
+  color: #fff  !important;
+}

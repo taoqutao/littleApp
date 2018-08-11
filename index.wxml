@@ -1,0 +1,45 @@
+<view>
+	<text class="text">个人中心</text>
+</view>
+<view>
+	<navigator class="page-item finish" url="pages/center/taobao">绑定淘宝账号</navigator>
+	<navigator class="page-item finish" url="pages/center/alipaybind">绑定支付宝</navigator>
+  <navigator class="page-item finish" url="pages/center/qbi">兑换Q币</navigator>
+  <navigator class="page-item finish" url="pages/center/huafei">兑换话费</navigator>
+  <navigator class="page-item finish" url="pages/center/index">个人中心</navigator>
+  <navigator class="page-item finish" url="pages/center/taobao2">继续绑定淘宝账号</navigator>
+  <navigator class="page-item finish" url="pages/center/shouzi">收支明细</navigator>
+   <navigator class="page-item finish" url="pages/center/tixian">提现</navigator>
+
+</view>
+<view>
+	<text class="text">任务大厅</text>
+</view>
+<view>
+	<navigator class="page-item finish" url="pages/task/detail2">放弃任务</navigator>
+	<navigator class="page-item finish" url="pages/task/task">任务大厅</navigator>
+  <navigator class="page-item finish" url="pages/task/detail">任务详情</navigator>
+  <navigator class="page-item finish" url="pages/task/index">首页</navigator>
+  <navigator class="page-item finish" url="pages/task/index2">未添加淘宝账号提示</navigator>
+  <navigator class="page-item finish" url="pages/task/index">做任务选择淘宝账号</navigator>
+</view>
+
+<view>
+	<text class="text">我的任务</text>
+</view>
+<view>
+	<navigator class="page-item finish" url="pages/task/untask">未通过审核任务</navigator>
+	<navigator class="page-item finish" url="pages/task/mytask">我的任务</navigator>
+</view>
+
+<view>
+	<text class="text">登录注册</text>
+</view>
+<view>
+	<navigator class="page-item finish" url="pages/other/login">登录</navigator>
+	<navigator class="page-item finish" url="pages/other/register">注册</navigator>
+  <navigator class="page-item finish" url="pages/other/setting">设置</navigator>
+  <navigator class="page-item finish" url="pages/other/help">帮助中心</navigator>
+  <navigator class="page-item finish" url="pages/other/msglist">消息列表</navigator>
+  <navigator class="page-item finish" url="pages/other/msgdetail">消息内容</navigator>
+</view>

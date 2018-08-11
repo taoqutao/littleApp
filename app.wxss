@@ -1,0 +1,623 @@
+/**app.wxss**/
+ /* 引用toast的样式 */
+@import "./component/mytoast/mytoast.wxss"; 
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+page{
+  background: #f5f5f5;
+  font-size: 30rpx;
+}
+.form{
+  background: #fff;
+  margin: 5rpx 0;
+  
+  border: 1px solid #eee;
+  border-left-width: 0 ;
+  border-right-width: 0;
+}
+.text-center{
+  text-align: center !important;
+}
+.mt0{
+  margin-top:0rpx !important; 
+}
+.form-ctrl label{
+   line-height: 100rpx;
+   background: #fff;
+   height: 100rpx;
+   vertical-align: middle;
+   display: inline-block;
+   width: 80px;
+   padding-left:20rpx; 
+   font-size: 30rpx;
+}
+.form-ctrl .txt{
+  vertical-align: middle;
+  background: #fff;
+  display: inline-block;
+  width: 520rpx;
+  font-size: 30rpx;
+  text-align: right;
+
+}
+.form.big .form-ctrl label{
+  width: 160rpx;
+}
+.form.big .form-ctrl .txt{
+  width: 480rpx;
+}
+.bd{
+  background: #eee;
+  height: 1rpx;
+  margin: 0 0 0 20rpx;
+}
+.btn{
+  background: #fe5727;
+  margin:20rpx 20rpx;
+  color: #fff;
+  font-size: 30rpx;
+  padding: 5rpx 0;
+}
+.btn.outline{
+  background: #fff;
+  border: 1px solid #fe5727;
+  color: #fe5727;
+}
+.main{
+  background: #fff;
+  margin-top: 10rpx;
+}
+.msg-item{
+  line-height: 80rpx;
+  height: 80rpx;
+  padding-left: 30rpx;
+  border-bottom: 1rpx solid #eee;
+  color:#666;
+}
+.ml20{
+  margin-left:20rpx; 
+}
+text{
+  line-height: 40rpx;
+}
+.fc-red{
+  color: red !important;
+}
+.p{
+  display: block;
+  line-height: 40rpx;
+  font-size: 30rpx;
+}
+.content{
+  background: #fff;
+  padding: 20rpx;
+}
+.h1{
+  font-size: 30rpx;
+  color:#333;
+  padding:0 20rpx;
+  padding-top: 20rpx;
+  display: block;
+}
+.fs26{
+  font-size: 26rpx !important;
+}
+.fs20{
+  font-size: 20rpx !important;
+}
+.fs24{
+  font-size: 24rpx !important;
+}
+.mt500{
+  margin-top: 500rpx;
+}
+.msg-cont{
+  min-height: 200rpx;
+}
+.msg-title{
+  padding: 10rpx 40rpx;
+}
+.msg-title text{
+  display: block;
+  font-size: 32rpx;
+}
+.untask{
+  background: #fff;
+  padding: 10rpx 20rpx;
+  margin-top: 20rpx;
+}
+.untask text{
+  display: block;
+}
+.untask .h3{
+  font-size: 30rpx;
+  line-height: 40rpx;
+
+  padding: 10rpx 0;
+ 
+}
+.untask .h2{
+  text-align: right;
+  margin-top: -25px;
+  font-size: 30rpx;
+  line-height: 40rpx;
+}
+.b{
+  font-weight: bold !important;
+}
+.fc-base{
+  color: #fe5727 !important;
+}
+.tasklist{
+  padding:0 20rpx;
+  border-bottom: 1px solid #eee;
+}
+.tasklist .item{
+  padding: 30rpx 20rpx;
+  position: relative;
+  color:#666;
+}
+.tasklist .item .btn{
+  position: absolute;
+  width: 150rpx;
+  font-size: 30rpx;
+  right: -10rpx;
+  top: 30rpx;
+}
+.tasklist .item +.item{
+  border-top: 1rpx solid #eee;
+}
+.tasklist .item .h3{
+  font-size: 32rpx;
+  color:#666;
+  line-height: 2;
+}
+.tasklist .item .h3 .b{
+  color:#333;
+}
+.tasklist .item .h4{
+  font-size: 24rpx;
+}
+.mr40{
+  margin-right: 40rpx;
+}
+.go-task{
+  margin: auto;
+  margin-top: 100rpx;
+  color:#fe5727;
+  font-size: 30rpx;
+  text-decoration: underline;
+  text-align: center
+}
+.txt-right{
+  text-align: right !important;
+}
+.tab{
+  padding:20rpx 0;
+  text-align: center;
+}
+.fc-grey{
+  color: #999 !important;
+}
+.hide{
+  display: none !important;
+}
+.tab .item{
+  display: inline-block;
+  
+  line-height: 50rpx;
+  background: #fff;
+  border: 1rpx solid #fff;
+  font-size: 30rpx;
+  color: #666;
+  width: 40%;
+  border-radius: 0;
+  vertical-align: top;
+}
+.tab .item.check{
+  background: #fe5727;
+  color: #fff;
+   border: 1rpx solid #fe5727;
+}
+.money-list{
+  padding: 20rpx;
+  text-align: center;
+}
+.money-list text{
+  display: inline-block;
+  width: 250rpx;
+  height: 100rpx;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 100rpx;
+  border: 1rpx solid #ccc;
+  color: #666;
+  background: #fff;
+  margin: 20rpx 50rpx;
+  font-weight: bolder;
+}
+.money-list text.check{
+  border-color: #fe5727;
+  color: #fe5727;
+}
+.shouzi .row{
+  background: #fff;
+  padding: 0 20rpx;
+}
+.shouzi .col1,.shouzi .col2,.shouzi .col3{
+  width: 300rpx;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 50rpx;
+  padding: 10rpx 0;
+}
+.shouzi .col3{
+  width: 100rpx;
+}
+.warnning{
+  color: #fe5727;
+  padding-left: 20rpx;
+  line-height: 30rpx;
+  font-size: 30rpx;
+  margin-bottom: 5px;
+}
+.mt20{
+  margin-top: 20rpx;
+}
+.upload{
+  padding: 20rpx;
+  text-align: center
+}
+.upload .item{
+  display: inline-block;
+  width: 200rpx;
+  margin: 10rpx 30rpx;
+}
+.upload .item image{
+  width: 198rpx;
+  height: 158rpx;
+  border: 1rpx solid #ccc;
+}
+.upload .item .btn-upload{
+  background: #f2f5f7;
+  font-size: 100rpx;
+  font-weight: bold;
+  width: 200rpx;
+  height: 160rpx;
+  line-height: 160rpx;
+   display: inline-block;
+  color:#ccc;
+  border:1rpx soid #f2f5f7;
+  border-radius: 0;
+  margin: 20rpx 0;
+}
+.index-top{
+  height: 400rpx;
+  background: #fe761f;
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+.index-top image{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 40rpx;
+}
+.index-top image.setting{
+  left: 40rpx;
+}
+.index-top image.msg{
+ right: 40rpx;
+}
+.index-top .h2{
+  padding-top: 60rpx;
+}
+.index-top .h3{
+  font-size: 80rpx;
+  margin-top: 20rpx;
+}
+.index-top .h4{
+  margin-top: 20rpx;
+}
+.index-top .h4 .item{
+  display: inline-block;
+  width: 32%;
+  vertical-align: top;
+
+}
+.index-top .h4 .item+.item{
+  border-left: 1px solid #fff;
+}
+.index-top .h4 .item text{
+  display: block;
+  margin-top: 20rpx;
+}
+.nav-link{
+  margin-top: 20rpx;
+  background: #fff;
+}
+.nav-link .item{
+  line-height: 100rpx;
+  height: 100rpx;
+  padding: 0 40rpx;
+  border-bottom: 1px solid #eee;
+}
+.nav-link .item .r{
+  text-align: right;
+  margin-top: -100rpx;
+  font-size: 50rpx;
+
+}
+
+.nav-link .item image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+  vertical-align:middle;
+}
+.nav-link .item .r image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+  vertical-align: middle;
+}
+.nav-link .item .r text{
+  vertical-align: middle;
+}
+
+.task-index-img{
+  width: 100%;
+  display: block;
+  height: 200rpx;
+}
+.task-index-h1{
+  background: #fff;
+  height: 80rpx;
+  padding: 0 30rpx;
+}
+.task-index-h1 image{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+  display: inline-block;
+}
+.task-index-h1 text
+{
+  line-height: 80rpx;
+  margin-left: 10rpx;
+}
+.task-index-h2{
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 20rpx 10rpx 20rpx 30rpx;
+}
+.task-index-h2 image{
+  width: 100rpx;
+  height: 100rpx;
+  vertical-align: middle;
+}
+.task-index-h2 .text{
+  width: 580rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20rpx;
+}
+.task-index-h2 .text text{
+  display: block;
+}
+.task-index-h2 .text .h2{
+  font-size: 40rpx;
+}
+.task-index-h2 .text .h3{
+  margin-top: 10rpx;
+  line-height: 1.5;
+  color: #666;
+  font-size: 24rpx;
+}
+.task-index-h3{
+  font-size:30rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+.task-index-nav{
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.task-index-nav .row{
+  border-bottom: 1px solid #eee;
+}
+.task-index-nav .item{
+  height: 200rpx;
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+.task-index-nav .item +.item{
+  border-left: 1rpx solid #eee;
+  margin-left: -1rpx;
+}
+.task-index-nav .item image{
+  width: 100rpx;
+  height: 100rpx;
+  vertical-align: middle;
+  margin:0 20rpx;
+}
+.task-index-nav .item .text{
+  width: 200rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.task-index-nav .item .text text{
+  display: block;
+}
+.task-index-nav .item .text .h3{
+  color: #666;
+  font-size: 24rpx;
+}
+.y-center{
+  display: inline-block;
+  height: 100%;
+  width: 1px;
+  vertical-align: middle;
+}
+.taobao-info{
+  text-align: right;
+  margin-top: -34rpx;
+}
+.task-detail-h2{
+  background: #fff;
+  
+}
+.task-detail-h2 .txt{
+  line-height: 1.5;
+  padding: 20rpx 20rpx;
+}
+.mr20{
+  margin-right: 20rpx !important;
+}
+.task-detail-h2 .img{
+  text-align: center;
+}
+.task-detail-h2 .img image{
+  width: 320rpx;
+  height: 240rpx;
+  display: inline-block;
+
+}
+.task-img{
+  text-align: center;
+  margin-top: 30rpx;
+}
+.task-img .img{
+  display: inline-block;
+  vertical-align: top;
+  width: 200rpx;
+  margin: 0 10rpx;
+}
+.task-img .img .icon{
+  width: 100rpx;
+  height: 100rpx;
+}
+.task-img .img text{
+  display: block;
+
+}
+.task-img .img .jt{
+  width: 30rpx;
+  height: 30rpx;
+  visibility: hidden;
+}
+.task-img .img.checked .jt{
+  visibility: visible;
+}
+.task-nav{
+  background: #eee;
+  margin: 0 20rpx;
+  padding: 0 10rpx;
+  margin-top:-10rpx; 
+}
+.task-nav .item{
+  display: inline-block;
+  width: 150rpx;
+  padding: 20rpx 0;
+  vertical-align: top;
+  text-align: center;
+}
+.task-nav .item text{display: block;
+line-height: 1.5;
+}
+.task-nav .item.checked text{
+ color: #fe5727;
+
+}
+.task-nav .item.checked{
+   border-bottom: 1rpx solid #fe5727;
+}
+.task-nav scroll-view{
+  display: block;
+  height: 130rpx;
+  white-space: nowrap;
+}
+.task-list2{
+  padding: 0  20rpx ;
+}
+.task-list2 .item{
+  margin-top: 20rpx;
+  padding: 20rpx 0;
+  line-height: 1.8;
+  position: relative;
+}
+.task-list2 .item .h4{
+  font-size: 24rpx;
+}
+.task-list2 .item .h5{
+  margin-top: 10rpx;
+}
+.task-list2 .item .btn{
+  position: absolute;
+  top: 60rpx;
+  right: 0;
+  width: 200rpx;
+}
+.task-list2 .item +.item{
+  border-top: 1px solid #eee;
+}
+.task-info{
+  margin-top: -40rpx;
+  text-align: right;
+}
+.model{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.model .bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6); 
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.model .content{
+  display: inline-block;
+  vertical-align: middle;
+  width: 80%;
+  position: relative;
+  z-index: 10;
+  background: #fff;
+  min-height: 100rpx;
+  padding: 20rpx ;
+  border-radius: 10rpx;
+}
+.model .content .title{
+  line-height: 60rpx;
+  border-bottom: 1rpx solid #eee;
+} 
+.model .content .body{
+  margin-top: 20rpx;
+  text-align: left;
+  padding: 10rpx;
+}
+.model .content.fangqi .btn{
+  margin:50rpx auto;
+  
+  width: 70%;
+  
+}
+.model .content.fangqi checkbox,.model .content.fangqi radio{
+  display: block;
+  margin-top: 20rpx;
+}
