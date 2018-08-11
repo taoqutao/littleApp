@@ -1,0 +1,21 @@
+<!--pages/center/qbi.wxml-->
+<text class='h1 fc-red'>兑换成功后当天到账</text>
+<view class='tab'>
+      <text class='item '>兑换Q币</text>
+      <text class='item check'>兑换话费</text>
+</view>
+<view class='form'>
+<view class='form-ctrl'>
+      <label>手机号</label>
+      <input class='txt ' placeholder='请输入手机号'></input>
+   </view>
+</view>
+<text class='h1'>选择充值金额</text>
+<view class='money-list'>
+  <text class='check'>20元</text>
+  <text>30元</text>
+  <text>40元</text>
+  <text>50元</text>
+</view>
+<text class='h1 fc-red mt0 text-center'>帐户余额不足</text>
+<button class='btn'>确认兑换</button>

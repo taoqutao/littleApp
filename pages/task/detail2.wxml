@@ -1,0 +1,102 @@
+<view class='task-detail-h2 mt20'>
+  <view class='txt'>
+    任务商品
+  </view>
+  <view class='bd'></view>
+  <view class='img'>
+    <image src='https://c1.yaofangwang.net/Common/Upload/Medicine/578/578911/584e4a51-2a10-4e9d-b5a6-fb84f4386be04692.jpg_300x300.jpg'></image>
+    <image src='https://c1.yaofangwang.net/Common/Upload/Medicine/578/578911/584e4a51-2a10-4e9d-b5a6-fb84f4386be04692.jpg_300x300.jpg'></image>
+  </view>
+  <view class='txt'>
+    <text class='fc-grey mr20'>商品名称:</text>雨刮器
+  </view>
+  <view class='txt'>
+    <text class='fc-grey mr20'>价格:</text>66元
+  </view>
+  <view class='txt'>
+    <text class='fc-grey mr20'>店铺名称:</text>直通车
+  </view>
+  <view class='txt'>
+    <text class='fc-grey mr20'>掌柜名称:</text>直通车
+  </view>
+
+</view>
+<view class='task-detail-h2 mt20'>
+  <view class='txt'>
+    筛选条件
+  </view>
+  <view class='bd'></view>
+  <view class='txt'>
+    <text class='fc-grey mr20'>任务类型:</text>直通车
+  </view>
+
+  <view class='txt'>
+    <text class='fc-grey mr20'>搜索关键字:</text>原装无骨雨刷
+    <text class='fc-red'>（长按复制）</text>
+  </view>
+
+  <view class='txt'>
+    <text class='fc-grey mr20'>筛选:</text>包邮+花呗
+  </view>
+
+</view>
+<view class='task-detail-h2 mt20'>
+  <view class='txt'>
+    任务要求
+  </view>
+  <view class='bd'></view>
+  <view class='txt'>
+    浏览商品5分钟+评价商品
+  </view>
+
+</view>
+<view class='form mt20'>
+  <view class='h1'>
+    上传截图
+    <view class='taobao-info'>我的淘宝账号：21212121</view>
+  </view>
+
+  <view class='bd mt20'></view>
+  <view class='upload'>
+    <view class='item'>
+      <image src='https://c1.yaofangwang.net/Common/Upload/Medicine/578/578911/584e4a51-2a10-4e9d-b5a6-fb84f4386be04692.jpg_300x300.jpg'></image>
+      <button class='btn-upload'>+</button>
+      <text>商品底部截图</text>
+    </view>
+    <view class='item'>
+      <image src='https://c1.yaofangwang.net/Common/Upload/Medicine/578/578911/584e4a51-2a10-4e9d-b5a6-fb84f4386be04692.jpg_300x300.jpg'></image>
+      <button class='btn-upload'>+</button>
+      <text>商品底部截图</text>
+    </view>
+  </view>
+</view>
+
+<button class='btn'>确认任务</button>
+<button class='btn outline mt20'>放弃任务</button>
+
+
+<view class='model'>
+  <view class='bg'></view>
+  <view class='content fangqi'>
+    <view class='title'>放弃原因</view>
+    <view class='body'>
+      <checkbox>
+        关键词搜索不到商品
+      </checkbox>
+      <checkbox>
+        商品图片与商家不符
+      </checkbox>
+      <checkbox>
+        找不到商家直通车商品
+      </checkbox>
+      <checkbox>
+        商家未设置优惠券
+      </checkbox>
+      <checkbox>
+        上传图片失效
+      </checkbox>
+    </view>
+    <button class='btn'>确认</button>
+  </view>
+  <view class='y-center'></view>
+</view>

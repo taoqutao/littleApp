@@ -1,0 +1,24 @@
+<!--pages/task/untask.wxml-->
+
+    <view class='untask'>
+      <text class='h3'>2018-08-01</text>
+       <text class='h2'>编号：10021201021212</text>
+      <text class='h3'>未通过原因</text>
+    </view>
+    <view class='untask'>
+      <text class='h3'>2018-08-01</text>
+       <text class='h2'>编号：10021201021212</text>
+      <text class='h3'>未通过原因</text>
+    </view>
+    <view class='untask'>
+      <text class='h3'>2018-08-01</text>
+       <text class='h2'>编号：10021201021212</text>
+      <text class='h3'>未通过原因</text>
+    </view>
+    <view class='untask'>
+      <text class='h3'>2018-08-01</text>
+       <text class='h2'>编号：10021201021212</text>
+      <text class='h3'>未通过原因未通过原因未通过原因未通过原因未通过原因未通过原因未通过原因未通过原因未通过原因未通过原因未通过原因未通过原因未通过原因</text>
+    </view>
+    
+

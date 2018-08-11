@@ -1,0 +1,23 @@
+<!--pages/center/shouzi.wxml-->
+<view class='shouzi'>
+<view class='h1'>
+    <view class='col1'>时间</view>
+     <view class='col2'>收支类型</view>
+      <view class='col3'>金额</view>
+</view>
+<view class='row'>
+    <view class='col1'>2017-01-09 11:00:00</view>
+     <view class='col2'>任务佣金</view>
+      <view class='col3 fc-red'>+50</view>
+</view>
+<view class='row'>
+    <view class='col1'>2017-01-09 11:00:00</view>
+     <view class='col2'>任务佣金</view>
+      <view class='col3 fc-red'>+50</view>
+</view>
+<view class='row'>
+    <view class='col1'>2017-01-09 11:00:00</view>
+     <view class='col2'>任务佣金</view>
+      <view class='col3'>+50</view>
+</view>
+</view>

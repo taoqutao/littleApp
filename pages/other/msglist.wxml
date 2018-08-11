@@ -1,0 +1,17 @@
+<view class='main'>
+<navigator class='msg-item' url='msgdetail'>
+做任务必看
+</navigator>
+<navigator class='msg-item' url='msgdetail'>
+做任务必看
+</navigator>
+<navigator class='msg-item' url='msgdetail'>
+做任务必看
+</navigator>
+<navigator class='msg-item' url='msgdetail'>
+做任务必看
+</navigator>
+<navigator class='msg-item' url='msgdetail'>
+做任务必看
+</navigator>
+</view>

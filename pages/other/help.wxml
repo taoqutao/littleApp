@@ -1,0 +1,21 @@
+<!--pages/other/help.wxml-->
+<text class='h1 fc-red'>有任何问题或建议请加入淘趣淘官方QQ群和关注微信公众好吧</text>
+<view class='content'>
+  <text class='p'>群名称：淘趣淘    群号：830508547</text>
+  <text class='p'>客服QQ：123070851</text>
+  <text class='p'>微信公众好号：淘趣淘666</text>
+</view>
+<text class='h1'>常见问题</text>
+<view class='content'>
+  <text class='p'>1.新用户有什么福利？</text>
+  <text class='p fs26'>答：新用户注册并绑定淘宝账号后，系统即自动随机赠送2-10金币（1金币等价1元）；</text>
+  <text class='p'>2.任务提交后，佣金到账时间？</text>
+  <text class='p fs26'>答:商家审核通过后，7个工作日内到达您的账户余额；</text>
+   <text class='p'>3.账户余额满多少可提现？</text>
+  <text class='p fs26'>答：余额满20元（20金币）即可提现（充值话费或Q币充值），且按10的倍数增加；</text>
+   <text class='p'>4.余额提现到账时间？</text>
+  <text class='p fs26'>答：余额提现至支付宝5个工作日内到账，充值话费或Q币充值当天到账；</text>
+   <text class='p'>5.做任务有什么规则？</text>
+  <text class='p fs26'>答：每个淘宝账号每次只能领取一个任务，且不能重复；每个任务要求在15分钟内完成，超过15分钟系统自动取消您的任务；每个任务须按要求完成操作并截图上传；</text>
+
+</view>

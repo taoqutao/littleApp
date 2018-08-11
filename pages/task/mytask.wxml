@@ -1,0 +1,22 @@
+<!--pages/task/mytask.wxml-->
+<view class='main'>
+  <view class='tasklist'>
+    <view class='item'>
+      <view class='h3'><text class='b mr40'>进行中的任务</text><text class='b fc-base'>1</text>单(<text class='fc-base'>0.23</text>金币)</view>
+      <view class='h4'><text class='fc-base'>15分钟</text>内未提交任务，系统将自动取消任务</view>
+      <button class='btn'>继续任务</button>
+    </view>
+    <view class='item'>
+      <view class='h3'><text class='b mr40'>超时未完成任务</text>0单(0金币)</view>
+      <view class='h4'><text class='fc-base'>15分钟</text>内未提交任务，系统将自动取消任务</view>
+    </view>
+    <view class='item'>
+      <view class='h3'><text class='b mr40'>进行中的任务</text><text class='b fc-base'>1</text>单(<text class='fc-base'>0.23</text>金币)</view>
+      <view class='h4'><text class='fc-base'>15分钟</text>内未提交任务，系统将自动取消任务</view>
+    </view>
+  </view>
+
+</view>
+  <navigator class='go-task'>
+    <text>前往任务大厅，查看任务</text>
+  </navigator>

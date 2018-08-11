@@ -1,0 +1,94 @@
+<!--pages/task/task.wxml-->
+<view class='main'>
+  <view class='task-index-h1'>
+    <image src='../../imgs/tz.png'></image>
+    <text>165****0001</text>
+    <text>已成功获得</text>
+    <text class='fc-red'>12.00金币</text>
+    <text>任务佣金</text>
+  </view>
+  <view class='task-img'>
+    <view class='img checked'>
+      <image src='../../imgs/tb2.png' class='icon'></image>
+      <text>淘宝任务</text>
+      <image src='../../imgs/jt2.png' class='jt'></image>
+    </view>
+    <view class='img'>
+      <image src='../../imgs/task3.png' class='icon'></image>
+      <text>天猫任务</text>
+      <image src='../../imgs/jt2.png' class='jt'></image>
+    </view>
+    <view class='img'>
+      <image src='../../imgs/task2.png' class='icon'></image>
+      <text>测图任务</text>
+      <image src='../../imgs/jt2.png' class='jt'></image>
+    </view>
+  </view>
+ <view class='task-nav'>
+  <scroll-view  scroll-x >
+      <view class='item checked'>
+        <text class='h2'>常规</text>
+        <text class='h3'>(30)</text>
+      </view>
+      <view class='item'>
+        <text class='h2'>直通车</text>
+        <text class='h3'>(30)</text>
+      </view>
+      <view class='item'>
+        <text class='h2'>聚划算</text>
+        <text class='h3'>(30)</text>
+      </view>
+        <view class='item'>
+        <text class='h2'>淘抢购</text>
+        <text class='h3'>(30)</text>
+      </view>
+        <view class='item'>
+        <text class='h2'>回访</text>
+        <text class='h3'>(30)</text>
+      </view>
+  </scroll-view> 
+ </view>
+  <view class='task-list2'>
+    <view class='h1'>
+    注意：禁止私下联系商家，如有商家举报，一经查实，初犯罚款10金币，再犯封号！
+    </view>
+    <view class='bd mt20'></view>
+    <view class='item'>
+      <view class='h3'>商品名称：试用品撒打发手动阀</view>
+      <view class='h4'>浏览商品2分钟+宝贝评价</view>
+      <view class='h5'>
+        <text class='fc-red fs30 b'>0.23</text>
+        <text class='fc-red'>金币</text>
+        <text class='ml20'>剩余</text>
+        <text class='fc-red'>72</text>
+        <text>单</text>
+      </view>
+      <button class='btn'>领取任务</button>
+    </view>
+     <view class='item'>
+      <view class='h3'>商品名称：试用品撒打发手动阀</view>
+      <view class='h4'>浏览商品2分钟+宝贝评价</view>
+      <view class='h5'>
+        <text class='fc-red fs30 b'>0.23</text>
+        <text class='fc-red'>金币</text>
+        <text class='ml20'>剩余</text>
+        <text class='fc-red'>72</text>
+        <text>单</text>
+      </view>
+      <button class='btn btn-grey'>领取任务</button>
+    </view>
+     <view class='item'>
+      <view class='h3'>商品名称：试用品撒打发手动阀</view>
+      <view class='h4'>浏览商品2分钟+宝贝评价</view>
+      <view class='h5'>
+        <text class='fc-red fs30 b'>0.23</text>
+        <text class='fc-red'>金币</text>
+        <text class='ml20'>剩余</text>
+        <text class='fc-red'>72</text>
+        <text>单</text>
+      </view>
+      <view class='txt-right fc-red fs24'>即将放出任务，每天整点准时放送</view>
+      <button class='btn btn-grey'>领取任务</button>
+    </view>
+  </view>
+</view>

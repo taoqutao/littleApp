@@ -1,0 +1,92 @@
+<!--pages/task/index.wxml-->
+<image src='../../imgs/bar.jpg' class='task-index-img'></image>
+<view class='task-index-h1'>
+  <image src='../../imgs/tz.png'></image>
+  <text>年底将至商家放任务量有所减少</text>
+</view>
+<view class='task-index-h2'>
+  <image src='../../imgs/tk.png'></image>
+  <view class='text'>
+    <text class='h2'>淘任务</text>
+    <text class='h3'>逛淘宝也能赚钱？通过完成浏览商品、收藏商品，加入购物车等任务，轻轻松松赚零花钱。
+用了淘趣淘，妈妈再也不用担心我的零花钱啦！</text>
+  </view>
+</view>
+<view class='task-index-h3'>
+  任务大厅
+</view>
+<view class='task-index-nav'>
+
+  <view class='row'>
+    <navigator class='item' url='task'>
+      <image src='../../imgs/cg.png'></image>
+      <view class='y-center'></view>
+      <view class='text'>
+        <text class='h2'>常规任务</text>
+        <text class='h3'>0个任务可接</text>
+      </view>
+    </navigator>
+    <navigator class='item' url='task'>
+      <image src='../../imgs/tc.png'></image>
+      <view class='y-center'></view>
+      <view class='text'>
+        <text class='h2'>直通车任务</text>
+        <text class='h3'>0个任务可接</text>
+      </view>
+    </navigator>
+  </view>
+  <view class='row'>
+    <navigator class='item' url='task'>
+      <image src='../../imgs/kl.png'></image>
+      <view class='y-center'></view>
+      <view class='text'>
+        <text class='h2'>淘口令</text>
+        <text class='h3'>0个任务可接</text>
+      </view>
+    </navigator>
+    <navigator class='item' url='task'>
+      <image src='../../imgs/hs.png'></image>
+      <view class='y-center'></view>
+      <view class='text'>
+        <text class='h2'>聚划算</text>
+        <text class='h3'>0个任务可接</text>
+      </view>
+      </navigator>
+  </view>
+  <view class='row'>
+    <navigator class='item' url='task'>
+      <image src='../../imgs/qg.png'></image>
+      <view class='y-center'></view>
+      <view class='text'>
+        <text class='h2'>淘枪购</text>
+        <text class='h3'>0个任务可接</text>
+      </view>
+    </navigator>
+    <navigator class='item' url='task'>
+      <image src='../../imgs/fs.png'></image>
+      <view class='y-center'></view>
+      <view class='text'>
+        <text class='h2'>粉丝回访</text>
+        <text class='h3'>0个任务可接</text>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+
+<view class='model {{status}}'>
+  <view class='bg' bindtap='modelClose'></view>
+  <view class='content fangqi'>
+    <view class='title'>选择做任务的淘宝账号</view>
+    <view class='body'>
+     <radio-group>
+      <radio>黑色的夜<text class='fc-grey ml20'>今日还可接</text><text class='fc-red'>40单</text>
+      </radio>
+      <radio>黑色的夜22<text class='fc-grey ml20'>今日还可接</text><text class='fc-red'>40单</text>
+      </radio>
+     </radio-group>
+    </view>
+    <button class='btn'>确认</button>
+  </view>
+  <view class='y-center'></view>
+</view>

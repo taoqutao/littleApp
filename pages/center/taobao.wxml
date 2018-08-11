@@ -1,0 +1,51 @@
+<view class='h1'>
+填写的淘宝账号和买家性别，请与截图上显示的会员名称、性别保持一致，信息无法修改
+</view>
+<view class='form big'>
+   <view class='form-ctrl'>
+      <label>淘宝账号</label>
+      <input class='txt ' placeholder='请输入淘宝账号或手机号'></input>
+   </view>
+   <view class='warnning'>
+   温馨提示：淘宝账号指的是淘宝会员名，不是手机、QQ或者邮箱哦
+   </view>
+<view class='bd'></view>
+   <view class='form-ctrl'>
+      <label>性别</label>
+      <view class='txt'>
+         <radio-group>
+          <radio>男</radio><radio class='ml20'>女</radio>
+         </radio-group>
+      </view>
+   </view>
+   <view class='form-ctrl'>
+      <label>会员等级</label>
+      <picker  class="txt" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view>
+     {{array[index]}}
+    </view>
+  </picker>
+   </view>
+</view>
+<view class='form mt20'>
+  <view class='h1'>
+    上传【我的淘宝截图】
+  </view>
+   <view class='bd mt20' ></view>
+  <view class='upload'>
+    <view class='item'>
+      <image src='https://c1.yaofangwang.net/Common/Upload/Medicine/578/578911/584e4a51-2a10-4e9d-b5a6-fb84f4386be04692.jpg_300x300.jpg'></image>
+      <button class='btn-upload'>+</button>
+      <text>个人资料截图</text>
+    </view>
+       <view class='item'>
+      <image src='https://c1.yaofangwang.net/Common/Upload/Medicine/578/578911/584e4a51-2a10-4e9d-b5a6-fb84f4386be04692.jpg_300x300.jpg'></image>
+      <button class='btn-upload'>+</button>
+      <text>会员中心截图</text>
+    </view>
+  </view>
+</view>
+<text class='h1 '>请仔细填写以上信息，并注意填写的支付宝账户、昵称和绑定的身份证持有人保持一致，一面对您的体现造成影响
+</text>
+   <button class='btn'>提交审核</button>
+   

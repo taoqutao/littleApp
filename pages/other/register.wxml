@@ -1,0 +1,29 @@
+
+<view class='form'>
+   <view class='form-ctrl'>
+      <label>*手机号</label>
+      <input class='txt' placeholder='请输入手机号'></input>
+   </view>
+   <view class='bd'></view>
+   <view class='form-ctrl'>
+      <label>*QQ号</label>
+      <input class='txt' placeholder='请输入QQ号'></input>
+   </view>
+   <view class='bd'></view>
+   <view class='form-ctrl'>
+      <label>*图形码</label>
+      <input class='txt' placeholder='请输入图形码' style='width:300rpx'></input>
+      <image src='../../imgs/img_code.png' style='height:50rpx;width:120rpx;vertical-align: middle;margin-left:100rpx'></image>
+   </view>
+   <view class='bd'></view>
+   <view class='form-ctrl'>
+      <label>*登录密码</label>
+      <input type='password' class='txt' placeholder='请输入登录密码'></input>
+   </view>
+</view>
+
+   <button class='btn'>注册</button>
+   <view style='margin:0 20px'>
+    <text style='color:#666'>点击“注册”表示您同意</text>
+    <navigator style='display:inline-block;color:#eb672e;'>《用户服务协议》</navigator>
+   </view>

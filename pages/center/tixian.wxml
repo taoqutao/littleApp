@@ -1,0 +1,18 @@
+
+<import src="../../component/mytoast/mytoast.wxml"/>
+<template is="toast" data="{{ ..._toast_ }}"/>
+
+<text class='h1 fc-red mt0'>温馨提示：请确认提现账户是否正确，否则确认提现后将无法更改，体现成功后，资金将在5个工作日内到达您的账户</text>
+<view class='form big'>
+   <view class='form-ctrl'>
+      <label>支付宝账号</label>
+      <input class='txt ' disabled='true' placeholder='请输入淘宝账号或手机号' value='121212121'></input>
+   </view>
+   <view class='bd'></view>
+   <view class='form-ctrl'>
+      <label>提现金额</label>
+      <input  class='txt' placeholder='请输入提现金额' ></input>
+   </view>
+</view>
+<text class='h1 fc-red mt0 text-center'>帐户余额不足</text>
+   <button class='btn' bindtap="openToastPannel">确认提现</button>

@@ -1,0 +1,8 @@
+<!--pages/other/msgdetail.wxml-->
+<view class='msg-title'>
+<text>消息标题</text>
+<text class='fs20'>2016-09-09</text>
+</view>
+<view class='content msg-cont'>
+ <text class='p'>消息内容内容消息内容内容消息内容内容消息内容内容消息内容内容消息内容内容消息内容内容消息内容内容消息内容内容消息内容内容消息内容内容消息内容内容</text>
+</view>
