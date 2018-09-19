@@ -1,4 +1,5 @@
 import { ToastPannel } from './component/mytoast/mytoast'
+import {twx} from '/twx/twx.js'
 App({
   ToastPannel,
   onLaunch: function () {
@@ -32,6 +33,13 @@ App({
           })
         }
       }
+    })
+    twx.request({
+      url: 'www.baidu.com',
+    }).then(function(res) {
+      console.log('then')
+    }).finally(function(){
+      console.log('finally')
     })
   },
   globalData: {

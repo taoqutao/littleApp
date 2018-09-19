@@ -1,15 +1,15 @@
 {
   "pages": [
-  "pages/task/index",
-    "pages/center/index",
-    "index",
+    "pages/task/index",
+    "pages/home/index",
+    "pages/my/mytask",
+    "pages/catelogue/index",
     "pages/other/login",
     "pages/other/register",
     "pages/other/msglist",
     "pages/other/msgdetail",
     "pages/other/help",
     "pages/other/setting",
-    "pages/task/mytask",
     "pages/task/untask",
     "pages/center/alipaybind",
     "pages/center/taobao",
@@ -19,11 +19,9 @@
     "pages/center/huafei",
     "pages/center/taobao2",
     "pages/task/detail",
-    
     "pages/task/index2",
     "pages/task/detail2",
     "pages/task/task"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -40,7 +38,7 @@
     "list": [
       {
         "text": "首页",
-        "pagePath": "pages/center/index",
+        "pagePath": "pages/home/index",
         "iconPath": "imgs/index.png",
         "selectedIconPath": "imgs/ch.png"
       },
@@ -52,13 +50,13 @@
       },
       {
         "text": "我",
-        "pagePath": "pages/task/mytask",
+        "pagePath": "pages/my/mytask",
         "iconPath": "imgs/per.png",
         "selectedIconPath": "imgs/per.png"
       },
       {
         "text": "网站清单",
-        "pagePath": "index",
+        "pagePath": "pages/catelogue/index",
         "iconPath": "imgs/task.png",
         "selectedIconPath": "imgs/task.png"
       }
