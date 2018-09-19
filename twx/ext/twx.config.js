@@ -1,9 +1,9 @@
-// twx.config.js 存放初始化后不会修改的配置
+// twx.config.js 
 var debug = false
 var envConfig = ["production", "stg", "test"];
 var envSelIdx = 0;
 if (debug) {
-  wx.setStorageSync('envSelectedIdx', envSelIdx); //切换环境,改这里就行  0:production 1:stg 2:test 
+  wx.setStorageSync('envSelectedIdx', envSelIdx);
   let storageEnvSelIdx = wx.getStorageSync('envSelectedIdx');
   if (typeof(storageEnvSelIdx) != 'undefined' && isNaN(parseInt(storageEnvSelIdx)) == false) {
     envSelIdx = parseInt(storageEnvSelIdx);
@@ -26,16 +26,16 @@ var config = {
     }
   },
 
-  debugSetupConfig: function() {
-    var app = getApp();
-    let envSelectedIdx = parseInt(wx.getStorageSync('envSelectedIdx'))
-    let newEnv = envConfig[isNaN(envSelectedIdx) ? 0 : envSelectedIdx];
-    if (envSelectedIdx) {
-      app.globalRequestUrl = 'https://wxapp.m.tqt.com'
-    } else {
-      app.globalRequestUrl = 'https://wxapp.m.tqt.com'
-    }
-    env = newEnv;
-  }
+  // debugSetupConfig: function() {
+  //   var app = getApp();
+  //   let envSelectedIdx = parseInt(wx.getStorageSync('envSelectedIdx'))
+  //   let newEnv = envConfig[isNaN(envSelectedIdx) ? 0 : envSelectedIdx];
+  //   if (envSelectedIdx) {
+  //     app.globalRequestUrl = 'https://wxapp.m.tqt.com'
+  //   } else {
+  //     app.globalRequestUrl = 'https://wxapp.m.tqt.com'
+  //   }
+  //   env = newEnv;
+  // }
 }
 module.exports = config;

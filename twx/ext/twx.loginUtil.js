@@ -4,8 +4,8 @@
 // example.
 // isLogin(true, this)
 function isLogin(jumpLogin, pageObejct) {
-    var pt_key = wx.getStorageSync('loginkey');
-    if (pt_key) {
+    var key = wx.getStorageSync('loginkey');
+    if (key) {
         return true;
     } else {
         if (jumpLogin) {

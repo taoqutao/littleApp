@@ -1,6 +1,6 @@
 var twx = require('../twx.js').twx;
 
-function initLocationAddress() {
+function initAddr() {
   startLocation()
 }
 
@@ -46,5 +46,6 @@ function startLBSRequest(callBack) {
   // do request
 }
 
-module.exports = {initLocationAddress};
-
+module.exports = {
+  initAddr
+};
