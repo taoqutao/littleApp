@@ -16,13 +16,13 @@ var config = {
   appId: 'wx2669fc45a313f669', //独立小程序的APPID
   host: function() {
     if (env == 'production') {
-      return 'tqt-pro.tqt.com';
+      return 'm.taoqutao.com';
     } else if (env == 'stg') {
-      return 'tqt-stg.tqt.com';
+      return 'm.taoqutao.com';
     } else if (env == 'test') {
-      return 'tqt-test.tqt.com';
+      return '192.168.0.107:8011';
     } else {
-      return 'tqt-pro.jd.com';
+      return 'm.taoqutao.com';
     }
   },
 

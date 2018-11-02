@@ -1,4 +1,5 @@
 // pages/task/task.js
+import twx from '../../twx/twx.js'
 Page({
 
   /**
@@ -62,5 +63,30 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  takeTask: function(e) {
+    wx.showLoading()
+    let res = e.target.id
+    if (res) {
+      let arr = res.split('_')
+      let taskId = arr[0]
+      let planId = arr[1]
+
+      let data = {
+        "taskId": taskId,
+        "planId": planId,
+        "account": 1 
+      }
+      twx.request({
+        url: '/api/task/receiveTask',
+        data: data
+      }).then(({data})=> {
+
+      }).finally(()=>{
+        wx.hideLoading()
+      })
+    }
+    
   }
 })

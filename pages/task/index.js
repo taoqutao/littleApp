@@ -1,4 +1,7 @@
 // pages/task/index.js
+import {
+  twx
+} from '../../twx/twx.js' 
 Page({
 
   /**
@@ -19,14 +22,33 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    wx.showLoading()
+    twx.request({
+      url: '/api/user/getTaobaoAccount',
+      method: 'GET',
+    }).then(({data})=>{
+      console.log(data)
+    }).finally(()=>{
+      wx.hideLoading()
+    })
   
+
+
+    twx.request({
+      url: '/api/user/getTaobaoAccount',
+      method: 'GET',
+    }).then(({ data }) => {
+      console.log(data)
+    }).finally(() => {
+      wx.hideLoading()
+    })
   },
 
   /**
@@ -63,7 +85,13 @@ Page({
   onShareAppMessage: function () {
   
   },
+
+  requestTask: function () {
+    
+
+  },
   modelClose:function(){
-    this.setData({ status: "hide" })
+
   }
+
 })

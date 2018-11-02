@@ -29,11 +29,12 @@ function __createHeader(header) {
     var selfCookie = _header.Cookie;
     selfCookie && (headerCookie += selfCookie);
     if (!_header['content-type']) {
-      _header['content-type'] = 'application/x-www-form-urlencoded';
+      // _header['content-type'] = 'application/x-www-form-urlencoded';
     }
     _header["UserAgent"] = "tqt-servicewechat";
     _header["wechatAppId"] = twx.appId;
     _header['Cookie'] = headerCookie;
+    _header['userId'] = wx.getStorageSync('twxlogin_userId') || ''
     var netType = ['wifi', '2g', '3g', '4g', 'none', 'unknown'].indexOf(twx.networkType);
     netType = netType == -1 ? 6 : netType + 1;
     _header["clientInfo"] = JSON.stringify({

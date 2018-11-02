@@ -33,19 +33,16 @@
   </view>
    <view class='bd mt20' ></view>
   <view class='upload'>
-    <view class='item'>
-      <image src='https://c1.yaofangwang.net/Common/Upload/Medicine/578/578911/584e4a51-2a10-4e9d-b5a6-fb84f4386be04692.jpg_300x300.jpg'></image>
-      <button class='btn-upload'>+</button>
+    <view class='item1'>
+      <block wx:for="{{imgs}}" wx:for-index="idx" wx:for-item="item" wx:key='item'>
+      <image class='img' mode='aspectFill' id='{{idx}}' src='{{item}}' bindtap='tapImage'></image>
+      </block>
       <text>个人资料截图</text>
-    </view>
-       <view class='item'>
-      <image src='https://c1.yaofangwang.net/Common/Upload/Medicine/578/578911/584e4a51-2a10-4e9d-b5a6-fb84f4386be04692.jpg_300x300.jpg'></image>
-      <button class='btn-upload'>+</button>
       <text>会员中心截图</text>
     </view>
   </view>
 </view>
 <text class='h1 '>请仔细填写以上信息，并注意填写的支付宝账户、昵称和绑定的身份证持有人保持一致，一面对您的体现造成影响
 </text>
-   <button class='btn'>提交审核</button>
+   <button class='btn' bindtap='submit'>提交审核</button>
    

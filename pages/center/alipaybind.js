@@ -1,11 +1,17 @@
 // pages/center/alipaybind.js
+import {
+  twx
+} from '../../twx/twx.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    alipaycode: "16602134065",
+    name: "123456",
+    isInputValidate: false
   },
 
   /**
@@ -62,5 +68,62 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  inputChange: function (e) {
+    let value = e.detail.value;
+    let curName = e.target.dataset.name;
+    checkInput(curName, value)
+
+    switch (curName) {
+      case 'phonecode':
+        this.setData({
+          phonecode: value,
+        });
+        break;
+      case 'name':
+        this.setData({
+          name: value,
+        });
+        break;
+    }
+
+    if (value) {
+      this.setData({
+        curName: value
+      })
+    }
+  },
+
+  checkInput: function (name, value) {
+    var isInputValidate = true
+    switch (curName) {
+      case 'phonecode':
+        var pattern = /^1[3-9][0-9]{9}$/;
+        isInputValidate &= pattern.test(value);
+        break;
+      case 'name':
+        isInputValidate &= value.length > 0
+        break;
+    }
+    this.setData({
+      isInputValidate: isInputValidate
+    })
+  },
+
+  tapBind: function(e) {
+    let param = {
+      "account": this.data.alipaycode, 
+      "trueName": this.data.name,
+    }
+    wx.showLoading()
+    twx.request({
+      url: '/api/user/bindAlipay',
+      data: param
+    }).then((res)=>{
+      console.log(res)
+    }).finally(()=>{
+      wx.hideLoading()
+    })
   }
 })

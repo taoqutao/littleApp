@@ -51,7 +51,7 @@
         <text class='h2'>聚划算</text>
         <text class='h3'>0个任务可接</text>
       </view>
-      </navigator>
+    </navigator>
   </view>
   <view class='row'>
     <navigator class='item' url='task'>
@@ -73,20 +73,4 @@
   </view>
 </view>
 
-
-<view class='model {{status}}'>
-  <view class='bg' bindtap='modelClose'></view>
-  <view class='content fangqi'>
-    <view class='title'>选择做任务的淘宝账号</view>
-    <view class='body'>
-     <radio-group>
-      <radio>黑色的夜<text class='fc-grey ml20'>今日还可接</text><text class='fc-red'>40单</text>
-      </radio>
-      <radio>黑色的夜22<text class='fc-grey ml20'>今日还可接</text><text class='fc-red'>40单</text>
-      </radio>
-     </radio-group>
-    </view>
-    <button class='btn'>确认</button>
-  </view>
-  <view class='y-center'></view>
-</view>
+<ac></ac>

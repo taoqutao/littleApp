@@ -53,31 +53,8 @@
     注意：禁止私下联系商家，如有商家举报，一经查实，初犯罚款10金币，再犯封号！
     </view>
     <view class='bd mt20'></view>
-    <view class='item'>
-      <view class='h3'>商品名称：试用品撒打发手动阀</view>
-      <view class='h4'>浏览商品2分钟+宝贝评价</view>
-      <view class='h5'>
-        <text class='fc-red fs30 b'>0.23</text>
-        <text class='fc-red'>金币</text>
-        <text class='ml20'>剩余</text>
-        <text class='fc-red'>72</text>
-        <text>单</text>
-      </view>
-      <button class='btn'>领取任务</button>
-    </view>
-     <view class='item'>
-      <view class='h3'>商品名称：试用品撒打发手动阀</view>
-      <view class='h4'>浏览商品2分钟+宝贝评价</view>
-      <view class='h5'>
-        <text class='fc-red fs30 b'>0.23</text>
-        <text class='fc-red'>金币</text>
-        <text class='ml20'>剩余</text>
-        <text class='fc-red'>72</text>
-        <text>单</text>
-      </view>
-      <button class='btn btn-grey'>领取任务</button>
-    </view>
-     <view class='item'>
+    <block wx:for="{{[1,2,3]}}" wx:for-index="idx" wx:for-item="item" wx:key='item'>
+    <view class='item' bindtap='takeTask'>
       <view class='h3'>商品名称：试用品撒打发手动阀</view>
       <view class='h4'>浏览商品2分钟+宝贝评价</view>
       <view class='h5'>
@@ -88,7 +65,10 @@
         <text>单</text>
       </view>
       <view class='txt-right fc-red fs24'>即将放出任务，每天整点准时放送</view>
-      <button class='btn btn-grey'>领取任务</button>
+      <button class='btn btn-grey' id='1_1'>领取任务</button>
     </view>
+    </block>
+     
+    
   </view>
 </view>

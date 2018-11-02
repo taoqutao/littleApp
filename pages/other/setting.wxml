@@ -6,4 +6,4 @@
   <text class='p'>微信公众好号：淘趣淘666</text>
 </view>
 <text class='h1 fs20'>淘趣淘通过有奖任务众包的方式，为商家提供高效精准的营销服务，让用户可以随时随地领取任务，获得报酬</text>
- <button class='btn outline mt500'>退出</button>
+ <button class='btn outline mt500' bindtap='logout'>退出</button>

@@ -1,4 +1,5 @@
 // pages/other/setting.js
+import {twx} from '../../twx/twx.js'
 Page({
 
   /**
@@ -62,5 +63,18 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  logout: function() {
+    wx.showLoading()
+    twx.request({
+      url: '/api/userLogout',
+    }).then(({data})=>{
+      if (data.code) {
+        wx.removeStorageSync('twxlogin_userId')
+      }
+    }).finally(() => {
+      wx.hideLoading()
+    })
   }
 })

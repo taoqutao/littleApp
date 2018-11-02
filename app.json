@@ -38,13 +38,13 @@
     "list": [
       {
         "text": "首页",
-        "pagePath": "pages/home/index",
+        "pagePath": "pages/task/index",
         "iconPath": "imgs/index.png",
         "selectedIconPath": "imgs/ch.png"
       },
       {
         "text": "我的任务",
-        "pagePath": "pages/task/index",
+        "pagePath": "pages/home/index",
         "iconPath": "imgs/task.png",
         "selectedIconPath": "imgs/task.png"
       },

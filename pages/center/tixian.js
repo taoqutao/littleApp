@@ -1,11 +1,16 @@
 // pages/center/tixian.js
+import {
+  twx
+} from '../../twx/twx.js' 
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+
+    money:""
   },
 
   /**
@@ -70,5 +75,31 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  inputChange: function (e) {
+    let value = e.detail.value;
+    let name = e.target.dataset.name;
+
+    if (value) {
+      this.setData({
+        money: value
+      })
+    }
+  },
+
+  submit: function(e) {
+    let data = {
+      "money": this.data.money
+    }
+    twx.request({
+      url: '/api/account/transferCashToAliPay',
+      data: data
+    }).then(({ data }) => {
+
+    }).finally(() => {
+      wx.hideLoading()
+    })
+    
   }
 })

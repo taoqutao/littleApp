@@ -34,13 +34,6 @@ App({
         }
       }
     })
-    twx.request({
-      url: 'www.baidu.com',
-    }).then(function(res) {
-      console.log('then')
-    }).finally(function(){
-      console.log('finally')
-    })
   },
   globalData: {
     userInfo: null

@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.1",
-	"appid": "wx2669fc45a313f669",
-	"projectname": "taoqutao",
+	"appid": "wx6c56b1f8c7b2be12",
+	"projectname": "taoqutaofff",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
