@@ -6,21 +6,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    taskList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.showLoading()
+    twx.request({
+      url: '/api/task/listSystemTaskType',
+      method: 'GET',
+      data: {
+        platformType: 10,
+        taskType: 10
+      }
+    }).then(({ data }) => {
+      this.setData({
+        taskList: data.list
+      })
+    }).finally(() => {
+      wx.hideLoading()
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**

@@ -25,7 +25,7 @@ function jumpLogin(obj) {
 
   //增加来自页面类型，没有传值表示来自正常页面，
   //传值switchTab表示来自switchTab页面，在做往回跳转时需要单独处理
-  var fromPageType;
+  var fromPageType; //switchTab or other
   if (obj.data.fromPageType)
     fromPageType = encodeURIComponent(obj.data.fromPageType);
   //增加来自页面层级数，为1代表是第一层页面，采用可返回跳转navigateTo

@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    fromPageType:'switchTab',
     table_items: [
       [{
         thumbnail: "/imgs/tx.png",
@@ -98,7 +99,7 @@ Page({
 
   requestTasks: function() {
     twx.request({
-      url: '/api/user/getTaobaoAccount',
+      url: '/api/user/listAssociateAccount',
     }).then(({
       data
     }) => {

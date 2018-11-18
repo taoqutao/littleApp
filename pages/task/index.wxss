@@ -1,1 +1,43 @@
 /* pages/task/index.wxss */
+
+.item-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  
+}
+
+.item-container .item {
+  background: #fff;
+  width: 50%;
+  border-right: 1px solid #f5f5f5;
+  margin-bottom: 1px;
+  height: 200rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.item-container .item .img {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 20rpx;
+}
+
+.item-container .item .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.item-container .item .text .t1 {
+  color: #666;
+  font-size: 24rpx;
+}

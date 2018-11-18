@@ -8,10 +8,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phonecode:"16602134065",
-    password:"123456",
+    phonecode:"",
+    password:"",
     isInputValidate:false,
-    returnpage: '',
+    checked: false,
+    _returnpage: '',
     fromPageType: '',//页面来源类型
   },
 
@@ -23,86 +24,18 @@ Page({
       title: '登录'
     })
     var _this = this;
-    _this.options = options;
-    _this.userInfo = {};
-    _this.data.returnpage = options.returnpage ? decodeURIComponent(options.returnpage) : "";
-    _this.data.fromPageType = options.fromPageType;
-    _this.data.jdlogin = options.jdlogin;
+    let phone = wx.getStorageSync('phonecode_using')
+    let password = wx.getStorageSync(phone)
+    this.setData({
+      _returnpage : options.returnpage ? decodeURIComponent(options.returnpage) : "",
+      fromPageType : options.fromPageType || '',
+      phonecode: phone || '',
+      password: password || '',
+      checked: password ? true : false
+    }) 
+    
+  },
 
-    let out = wx.getStorageSync('jdlogin_out');
-    _this.data.isLogout = out ? out : false;
-    wx.login({
-      success: function (radata) {
-        _this.radata = radata;
-        wx.getSetting({
-          success(res) {
-            if (!res.authSetting['scope.userInfo']) {
-              wx.authorize({
-                scope: 'scope.userInfo',
-                success(resInfo) {
-                  _this.getUserInfo();
-                },
-                fail: function (res) {
-                  _this.authorize();
-                }
-              })
-            } else {
-              _this.getUserInfo();
-            }
-          },
-          fail: function (data) {
-            _this.getUserInfo();
-          }
-        })
-      }
-    });
-  },
-  getUserInfo() {
-    var _this = this;
-    wx.showLoading({
-      title: '加载中',
-    })
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 2000);
-    wx.getUserInfo({
-      success: function (resInfo) {
-        _this.userInfo = resInfo;
-        _this.encryptedData = encodeURIComponent(resInfo.encryptedData);
-        _this.ivData = encodeURIComponent(resInfo.iv);
-      },
-      fail: function () { },
-      complete: function () {
-        _this.smsLogin();
-      }
-    })
-  },
-  authorize: function () {
-    var _this = this;
-    wx.showModal({
-      title: '打开设置页面进行授权',
-      content: '需要获取您的公开信息（昵称、头像等），请到小程序的设置中打开用户信息授权',
-      cancelText: '取消',
-      confirmText: '去设置',
-      success: function (res) {
-        if (res.confirm) {
-          wx.openSetting({
-            success: (res) => {
-              if (res.authSetting["scope.userInfo"]) {////如果用户重新同意了授权登录
-                _this.getUserInfo();
-              }
-            }
-          })
-
-        } else {
-          _this.getUserInfo();
-        }
-      },
-      fail: function (res) {
-        _this.getUserInfo();
-      }
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -155,7 +88,7 @@ Page({
   inputChange: function(e) {
     let value = e.detail.value;
     let curName = e.target.dataset.name;
-    checkInput(curName, value)
+    this.checkInput(curName, value)
 
     switch (curName) {
       case 'phonecode':
@@ -177,9 +110,27 @@ Page({
     }
   },
 
+  checkboxChange: function (e) {
+    let checked = !this.data.checked
+    if (checked) {
+      wx.setStorage({
+        key: 'phonecode_using',
+        data: this.data.phonecode,
+      })
+      wx.setStorage({
+        key: this.data.phonecode,
+        data: this.data.password,
+      })
+    } else {
+      wx.removeStorage({
+        key: this.data.phonecode
+      })
+    }
+  },
+
   checkInput: function(name, value) {
     var isInputValidate = true
-    switch (curName) {
+    switch (name) {
       case 'phonecode':
         var pattern = /^1[3-9][0-9]{9}$/;
         isInputValidate &= pattern.test(value);
@@ -190,6 +141,12 @@ Page({
     }
     this.setData({
       isInputValidate: isInputValidate
+    })
+  },
+
+  tapRegister: function (e) {
+    wx.navigateTo({
+      url: '/pages/other/register',
     })
   },
 
@@ -206,23 +163,19 @@ Page({
         "password": this.data.password
       }
     }).then((res) => {
-        var data = res.data;
-        if (data.code) {
+        if (res.code) {
           try {
-            wx.setStorageSync('twxlogin_userId', data.data.userId);
+            wx.setStorageSync('twxlogin_userId', res.data.userId);
           } catch (e) {
           }
-          if (_this.data.returnpage) {
+          if (_this.data._returnpage) {
             if (_this.data.fromPageType && _this.data.fromPageType == 'switchTab') {
               wx.switchTab({
-                url: _this.data.returnpage
+                url: _this.data._returnpage
               })
-            } else if (activityUrl) {
-              h5Login.jshopH5Login(_this.data.returnpage)
-            }
-            else {
+            } else {
               wx.redirectTo({
-                url: _this.data.returnpage
+                url: _this.data._returnpage
               });
             }
           }

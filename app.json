@@ -21,7 +21,8 @@
     "pages/task/detail",
     "pages/task/index2",
     "pages/task/detail2",
-    "pages/task/task"
+    "pages/task/task",
+    "pages/center/jd/jdbind"
   ],
   "window": {
     "backgroundTextStyle": "light",

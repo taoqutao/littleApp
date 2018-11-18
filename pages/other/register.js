@@ -4,12 +4,13 @@ import {
 } from '../../twx/twx.js'
 Page({
   data: {
-    captchaUrl: 'https://m.taoqutao.com/vcode?a',
-    phonecode:'16602134065',
-    qqcode:'40345435435',
-    captcha:'3333',
-    password:'123456',
-    isInputValidate:false
+    codeurl: "",
+    phonecode:'',
+    qqcode:'',
+    captcha:'',
+    password:'',
+    isInputValidate:0,
+    cookie:''
   },
 
   /**
@@ -19,6 +20,7 @@ Page({
     wx.setNavigationBarTitle({
       title: '注册'
     })
+    this.requestCode()
   },
 
   /**
@@ -73,17 +75,17 @@ Page({
   inputChange: function (e) {
     let value = e.detail.value;
     let curName = e.target.dataset.name;
-    checkInput(curName, value)
+    this.checkInput(curName, value)
 
     switch (curName) {
       case 'phonecode':
         this.setData({
-          phoneCode: value,
+          phonecode: value,
         });
         break;
       case 'qqcode':
         this.setData({
-          qqCode: value,
+          qqcode: value,
         });
         break;
       case 'captcha':
@@ -93,7 +95,7 @@ Page({
         break;
       case 'password':
         this.setData({
-          passwordCode: value,
+          password: value,
         });
         break;
     }
@@ -106,20 +108,25 @@ Page({
   },
 
   checkInput: function (name, value) {
-    var isInputValidate = true
-    switch (curName) {
+    var isInputValidate = this.data.isInputValidate
+    var res = 0
+    switch (name) {
       case 'phonecode':
         var pattern = /^1[3-9][0-9]{9}$/;
-        isInputValidate &= pattern.test(value);
+        res = pattern.test(value);
+        res ? isInputValidate |= res : isInputValidate &= ~1
         break;
       case 'qqcode':
-        isInputValidate &= value.length > 0
+        res = (value.length > 0) << 1
+        res ? isInputValidate |= res : isInputValidate &= ~(1 << 1)
         break;
       case 'captcha':
-        isInputValidate &= value.length == 4
+        res = (value.length == 4) << 2
+        res ? isInputValidate |= res : isInputValidate &= ~(1 << 2)
         break;
       case 'password':
-        isInputValidate &= value.length > 5
+        res = (value.length > 5) << 3
+        res ? isInputValidate |= res : isInputValidate &= ~(1 << 3)
         break;
     }
     this.setData({
@@ -127,16 +134,9 @@ Page({
     })
   },
 
-
-  tapCode: function(e) {
-    let that = this
-    that.setData({
-      captchaUrl: this.data.captchaUrl + "a"
-    })
-  },
-
   tapRegister: function(e) {
     wx.showLoading()
+    let that = this
     let data = {
       "mobile": this.data.phonecode,
       "vCode": this.data.captcha,
@@ -145,12 +145,43 @@ Page({
     }
     twx.request({
       url: '/api/reg/registerUser',
+      header: {
+        'Cookie': this.data.cookie
+      },
       data: data
     }).then(function(res) {
-      console.log(res)
+      if (res.code) {
+        wx.navigateBack({
+          delta: 1
+        })
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none'
+        })
+        that.requestCode()
+      }
+      
     }).finally(()=>{
       wx.hideLoading()
     })
+  },
+
+  requestCode: function() {
+    let that = this
+    wx.request({
+      url: 'https://m.taoqutao.com/getVCode',
+      method: 'GET',
+      success: ({data}) => {
+        if (data.code) {
+          that.setData({
+            codeurl: 'data:image/png;base64,'+wx.arrayBufferToBase64(wx.base64ToArrayBuffer(data.data.image)),
+            cookie: data.data.jSessionId
+          })
+        }
+      }
+    })
+    
   }
 
 })

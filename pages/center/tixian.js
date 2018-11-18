@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    account:'',
     money:""
   },
 
@@ -39,7 +39,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    twx.request({
+      url: '/api/user/getAliPayInfo'
+    }).then(({ data }) => {
+      this.setData({
+        account: data.alipay
+      })
+    }).finally(() => {
+      wx.hideLoading()
+    })
   },
 
   /**

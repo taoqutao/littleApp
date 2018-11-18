@@ -1,11 +1,17 @@
 // pages/center/shouzi.js
+import {
+  twx
+} from '../../twx/twx.js' 
+import {
+  dateFtt
+} from '../../utils/util.js' 
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    list: []
   },
 
   /**
@@ -26,7 +32,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    wx.showLoading()
+    twx.request({
+      url: '/api/account/getAccountDetail',
+      method: 'GET'
+    }).then(({ data }) => {
+      for (var i = 0; i < data.length; i++) {
+        data[i].updateTime = dateFtt('yyyy-MM-dd hh:mm:ss', new Date(data[i].updateTime))
+      }
+      this.setData({
+        list:data
+      })
+    }).finally(() => {
+      wx.hideLoading()
+    })
   },
 
   /**

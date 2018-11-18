@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    fromPageType: 'switchTab',
     list: [],
   },
 
@@ -71,11 +72,9 @@ Page({
     twx.request({
       url: '/api/task/listUserTask',
       method: 'GET'
-    }).then(({
-      data
-    }) => {
+    }).then((res) => {
       this.setData({
-        list: data.data
+        list: res.data
       })
     }).finally(() => {
       wx.hideLoading()

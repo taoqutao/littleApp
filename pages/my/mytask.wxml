@@ -1,6 +1,5 @@
 <!--pages/task/mytask.wxml-->
 <view class='index-top'>
-  <image class='setting' src='../../imgs/setting.png'></image>
   <view class='h2'>
     当前可提现金额
   </view>
@@ -21,7 +20,6 @@
       <text>0.00</text>
     </view>
   </view>
-  <image class='msg' src='../../imgs/msg.png'></image>
 </view>
 <view class='nav-link'>
   <navigator class='item' url="/pages/center/tixian">
@@ -43,7 +41,7 @@
       <image src='../../imgs/jt.png'></image>
     </view>
   </navigator>
-  <navigator class='item' url="/pages/center/qbi">
+  <!-- <navigator class='item' url="/pages/center/qbi">
     <view class='l'>
       <image src='../../imgs/qq.png'></image>
       <text>兑换话费/Q币</text>
@@ -52,7 +50,7 @@
       <text class='fc-red fs26'>当天到账</text>
       <image src='../../imgs/jt.png'></image>
     </view>
-  </navigator>
+  </navigator> -->
 
 </view>
 <view class='nav-link'>
@@ -90,5 +88,5 @@
     </view>
   </navigator>
 
-<table dataSource='{{table_items}}'></table>
+  <!-- <table dataSource='{{table_items}}'></table> -->
 </view>

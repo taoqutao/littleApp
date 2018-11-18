@@ -6,7 +6,7 @@
 <view class='form big'>
    <view class='form-ctrl'>
       <label>支付宝账号</label>
-      <input class='txt ' disabled='true' placeholder='请输入淘宝账号或手机号' value='121212121' data-name="account" bindinput='inputChange'></input>
+      <input class='txt ' disabled='true' placeholder='请输入淘宝账号或手机号' value='{{account}}' data-name="account" bindinput='inputChange' disabled='true'></input>
    </view>
    <view class='bd'></view>
    <view class='form-ctrl'>
