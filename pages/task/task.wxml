@@ -7,68 +7,47 @@
     <text class='fc-red'>12.00金币</text>
     <text>任务佣金</text>
   </view>
+
   <view class='task-img'>
-    <view class='img checked'>
-      <image src='../../imgs/tb2.png' class='icon'></image>
-      <text>淘宝任务</text>
-      <image src='../../imgs/jt2.png' class='jt'></image>
-    </view>
-    <view class='img'>
-      <image src='../../imgs/task3.png' class='icon'></image>
-      <text>天猫任务</text>
-      <image src='../../imgs/jt2.png' class='jt'></image>
-    </view>
-    <view class='img'>
-      <image src='../../imgs/task2.png' class='icon'></image>
-      <text>测图任务</text>
-      <image src='../../imgs/jt2.png' class='jt'></image>
-    </view>
+    <block wx:for="{{categories}}" wx:for-index="idx" wx:for-item="item" wx:key='unique_row'>
+      <view class='img'>
+        <image src="{{item.iconUrl}}" mode='aspectFit' class='icon'></image>
+        <text>{{item.platformName}}</text>
+        <view class='shape' hidden='{{item.platformId != platformId}}'></view>
+      </view>
+    </block>
   </view>
- <view class='task-nav'>
-  <scroll-view  scroll-x >
-      <view class='item checked'>
-        <text class='h2'>常规</text>
-        <text class='h3'>(30)</text>
-      </view>
-      <view class='item'>
-        <text class='h2'>直通车</text>
-        <text class='h3'>(30)</text>
-      </view>
-      <view class='item'>
-        <text class='h2'>聚划算</text>
-        <text class='h3'>(30)</text>
-      </view>
-        <view class='item'>
-        <text class='h2'>淘抢购</text>
-        <text class='h3'>(30)</text>
-      </view>
-        <view class='item'>
-        <text class='h2'>回访</text>
-        <text class='h3'>(30)</text>
-      </view>
-  </scroll-view> 
- </view>
+  <view class='task-nav'>
+    <scroll-view scroll-x scroll-into-view="{{'id_' + taskId}}">
+      <block wx:for="{{categories[selectedCategoryIndex].tasks}}" wx:for-index="idx" wx:for-item="item" wx:key='unique_row'>
+        <view class="item {{ item.id == taskId ? 'checked' : ''}}" id="{{'id_' + item.id}}">
+          <text class='h2'>{{item.name}}</text>
+          <text class='h3'>{{'('+ item.number + ')'}}</text>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
   <view class='task-list2'>
     <view class='h1'>
-    注意：禁止私下联系商家，如有商家举报，一经查实，初犯罚款10金币，再犯封号！
+      注意：禁止私下联系商家，如有商家举报，一经查实，初犯罚款10金币，再犯封号！
     </view>
     <view class='bd mt20'></view>
     <block wx:for="{{taskList}}" wx:for-index="idx" wx:for-item="item" wx:key='item'>
-    <view class='item' bindtap='takeTask'>
-      <view class='h3' style='overflow: hidden;width:80%; text-overflow:ellipsis;white-space: nowrap;'>{{'商品名称：' + item.goodsName}}</view>
-      <view class='h4'>{{item.taskName}}</view>
-      <view class='h5'>
-        <text class='fc-red fs30 b'>{{item.money}}</text>
-        <text class='fc-red'>金币</text>
-        <text class='ml20'>剩余</text>
-        <text class='fc-red'>{{item.remainCount}}</text>
-        <text>单</text>
+      <view class='item'>
+        <view class='h3' style='overflow: hidden;width:80%; text-overflow:ellipsis;white-space: nowrap;'>{{'商品名称：' + item.name}}</view>
+        <view class='h4'>{{item.description}}</view>
+        <view class='h5'>
+          <text class='fc-red fs30 b'>{{item.money}}</text>
+          <text class='fc-red'>金币</text>
+          <text class='ml20'>剩余</text>
+          <text class='fc-red'>{{item.count}}</text>
+          <text>单</text>
+        </view>
+        <view class='txt-right fc-red fs24'>即将放出任务，每天整点准时放送</view>
+        <button class="btn {{item.state ? '' : 'btn-grey'}} " id="{{item.id}}" disabled='{{!item.state}}' bindtap='takeTask'>领取任务</button>
       </view>
-      <view class='txt-right fc-red fs24'>即将放出任务，每天整点准时放送</view>
-      <button class='btn btn-grey' id="{{item.planId+'_'+item.id}}">领取任务</button>
-    </view>
     </block>
-     
-    
+
+
   </view>
 </view>

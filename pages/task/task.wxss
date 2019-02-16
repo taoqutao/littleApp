@@ -1,1 +1,74 @@
 /* pages/task/task.wxss */
+
+.task-img {
+  text-align: center;
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.task-img .img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 200rpx;
+  margin: 0 10rpx;
+}
+
+.task-img .img .icon {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.task-img .img text {
+  display: block;
+}
+
+.task-img .img .jt {
+  width: 30rpx;
+  height: 30rpx;
+  visibility: hidden;
+}
+
+.shape {
+  width: 0;
+  height: 0;
+  border-left: 15rpx solid transparent;
+  border-right: 15rpx solid transparent;
+  border-bottom: 15rpx solid #eee;
+}
+
+.task-nav{
+  background: #eee;
+  margin: 0 20rpx;
+  padding: 0 10rpx;
+}
+.task-nav .item{
+  display: inline-block;
+  width: 150rpx;
+  padding: 20rpx 0;
+  vertical-align: top;
+  text-align: center;
+}
+.task-nav .item text{display: block;
+line-height: 1.5;
+}
+.task-nav .item.checked text{
+ color: #fe5727;
+
+}
+.task-nav .item.checked{
+   border-bottom: 1rpx solid #fe5727;
+}
+.task-nav scroll-view{
+  display: block;
+  height: 130rpx;
+  white-space: nowrap;
+}
+
+.btn-grey {
+  background-color: #949494
+}

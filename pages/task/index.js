@@ -27,14 +27,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    // twx.request({
-    //   url: '/api/user/updateAccountStatus',
-    //   method: 'POST'
-    // }).then(({
-    //   data
-    // }) => {
-    //   console.log(data)
-    // })
     twx.request({
       url: '/api/user/listAssociateAccount',
     }).then(({
@@ -109,7 +101,6 @@ Page({
 
   },
   selectAccount: function(e) {
-    this.selectComponent("#accountView").setStatus(true)
     wx.navigateTo({
       url: '/pages/task/task?platformId=' + `${this.data.platformId}` + '&taskId=' + `${this.data.taskId}` + '&accountId=' + `${e.detail.id}`,
     })

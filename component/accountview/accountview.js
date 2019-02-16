@@ -33,7 +33,7 @@ Component({
 
     modelClose: function() {
       this.setData({
-        status: "hide"
+        status: false
       })
     },
 
@@ -50,6 +50,7 @@ Component({
     },
 
     tapConfim: function(e) {
+      this.modelClose()
       this.triggerEvent('customevent', {
         id: this.data.selectedId
       }, {

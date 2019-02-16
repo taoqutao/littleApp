@@ -6,24 +6,81 @@ Page({
    * 页面的初始数据
    */
   data: {
-    taskList:[]
+    taskList:[],
+    accountId: null,
+    platformId: null,
+    taskId: null,
+    categories: [],
+    selectedCategoryIndex: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData(options)
+
+    this.getData()
+  },
+
+  getData: function() {
     wx.showLoading()
-    twx.request({
+    let promise_list = twx.request({
       url: '/api/task/listSystemTaskType',
       method: 'GET',
       data: {
-        platformType: 10,
-        taskType: 10
+        platformType: this.data.platformId,
+        taskType: this.data.taskId
       }
-    }).then(({ data }) => {
+    }).then((res) => {
+      if (res && res.code) {
+        return res.data.list.map((item, index)=>{
+          return {
+            name: item.goodsName,
+            description: item.taskName,
+            money: item.money,
+            count: item.remainCount,
+            state: 1,
+            id: item.id
+          }
+        })
+      } else {
+        return []
+      }
+    })
+
+    let promise_all = twx.request({
+      url: '/api/task/listSystemTaskHall',
+      method: 'GET'
+    }).then((res) => {
+      if (res && res.code) {
+        return res.data.map((item, idx) => {
+          let tasks = item.taskTypeList.map((element, index) => {
+            return {
+              name: element.typeName,
+              id: element.type,
+              number: element.taskNum
+            }
+          })
+          if (this.data.platformId === item.platformId) {
+            this.data.selectedCategoryIndex = idx
+          }
+          return {
+            platformName: item.platformName,
+            platformId: item.platformId,
+            tasks: tasks,
+            iconUrl: item.iconUrl
+          }
+        })
+      } else {
+        return []
+      }
+    })
+
+    Promise.all([promise_list, promise_all]).then((res) => {
       this.setData({
-        taskList: data.list
+        categories: res[1],
+        taskList: res[0]
       })
     }).finally(() => {
       wx.hideLoading()
@@ -81,26 +138,32 @@ Page({
 
   takeTask: function(e) {
     wx.showLoading()
-    let res = e.target.id
-    if (res) {
-      let arr = res.split('_')
-      let taskId = arr[0]
-      let planId = arr[1]
-
-      let data = {
-        "taskId": taskId,
-        "planId": planId,
-        "account": 1 
+    let res = e.currentTarget.id
+    twx.request({
+      url: '/api/task/receiveTask',
+      data: {
+        id: res,
+        account: this.data.accountId
       }
-      twx.request({
-        url: '/api/task/receiveTask',
-        data: data
-      }).then(({data})=> {
-
-      }).finally(()=>{
-        wx.hideLoading()
+    }).then((data) => {
+      if (data && data.code) {
+        wx.showToast({
+          title: '领取成功',
+          icon: 'none'
+        })
+      } else {
+        wx.showToast({
+          title: data.message,
+          icon: 'none'
+        })
+      }
+    }).catch(()=>{
+      wx.showToast({
+        title: '领取失败',
+        icon: 'none'
       })
-    }
-    
+    }).finally(() => {
+      wx.hideLoading()
+    })
   }
 })

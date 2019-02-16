@@ -14,7 +14,7 @@
   </view>
   <view class='item-container '>
     <block wx:for="{{section.taskTypeList}}" wx:for-index="idx" wx:for-item="item" wx:key='unique_row '>
-      <view class='item ' id="{{section.platformId+'_'+item.id}}" bindtap='tapTask'>
+      <view class='item ' id="{{section.platformId+'_'+item.type}}" bindtap='tapTask'>
         <image class='img ' src='{{item.iconUrl}}' mode='aspectFill '></image>
         <view class='text '>
           <text>{{item.typeName}}</text>
