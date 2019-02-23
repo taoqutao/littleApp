@@ -50,7 +50,7 @@ Page({
         })
       } else {
         wx.showToast({
-          title: '信息错误',
+          title: '请绑定支付宝',
           icon: 'none'
         })
       }

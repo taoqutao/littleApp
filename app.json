@@ -19,8 +19,7 @@
     "pages/center/huafei",
     "pages/center/taobao2",
     "pages/task/detail",
-    "pages/task/task",
-    "pages/center/jd/jdbind"
+    "pages/task/task"
   ],
   "window": {
     "backgroundTextStyle": "light",
