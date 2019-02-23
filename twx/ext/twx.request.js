@@ -84,7 +84,7 @@ function request(object) {
 
   var nSuccess = ({data}) => {
     // setCookies(res.data);
-    if (data && data.code == 999) {
+    if (data && data.code == 999 && !object.skipLogin) {
       let app = getApp()
       twx.jumpLogin(app.currentPage)
     } else {

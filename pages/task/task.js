@@ -30,7 +30,8 @@ Page({
       method: 'GET',
       data: {
         platformType: this.data.platformId,
-        taskType: this.data.taskId
+        taskType: this.data.taskId,
+        account: this.data.accountId
       }
     }).then((res) => {
       if (res && res.code) {
@@ -80,7 +81,8 @@ Page({
     Promise.all([promise_list, promise_all]).then((res) => {
       this.setData({
         categories: res[1],
-        taskList: res[0]
+        taskList: res[0],
+        selectedCategoryIndex: this.data.selectedCategoryIndex
       })
     }).finally(() => {
       wx.hideLoading()
@@ -136,6 +138,14 @@ Page({
   
   },
 
+  tapCategory: function(e) {
+    
+  },
+
+  tapTask: function (e) {
+
+  },
+
   takeTask: function(e) {
     wx.showLoading()
     let res = e.currentTarget.id
@@ -150,6 +160,9 @@ Page({
         wx.showToast({
           title: '领取成功',
           icon: 'none'
+        })
+        wx.navigateTo({
+          url: '/pages/task/detail?taskId=' + res,
         })
       } else {
         wx.showToast({

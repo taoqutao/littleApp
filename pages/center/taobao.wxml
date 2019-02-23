@@ -1,13 +1,13 @@
 <view class='h1'>
-  填写的淘宝账号和买家性别，请与截图上显示的会员名称、性别保持一致，信息无法修改
+  {{'填写的' + platformName + '账号和买家性别，请与截图上显示的会员名称、性别保持一致，信息无法修改'}}
 </view>
 <view class='form big'>
   <view class='form-ctrl'>
-    <label>淘宝账号</label>
-    <input class='txt ' placeholder='请输入淘宝账号或手机号' bindinput='inputChange'></input>
+    <label>{{platformName + '账号'}}</label>
+    <input class='txt ' placeholder="{{'请输入' + platformName + '账号或手机号'}}" bindinput='inputChange'></input>
   </view>
   <view class='warnning'>
-    温馨提示：淘宝账号指的是淘宝会员名，不是手机、QQ或者邮箱哦
+    {{'温馨提示：' + platformName + '账号指的是' + platformName + '会员名，不是手机、QQ或者邮箱哦'}}
   </view>
   <view class='bd'></view>
   <view class='form-ctrl'>
@@ -30,7 +30,7 @@
 </view>
 <view class='form mt20'>
   <view class='h1'>
-    上传【我的淘宝截图】
+    {{'上传【我的' + platformName + '截图】'}}
   </view>
   <view class='bd mt20'></view>
   <view class='upload'>

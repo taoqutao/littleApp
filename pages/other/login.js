@@ -10,7 +10,7 @@ Page({
   data: {
     phonecode:"",
     password:"",
-    isInputValidate:false,
+    isInputValidate: 0,
     checked: false,
     _returnpage: '',
     fromPageType: '',//页面来源类型
@@ -129,14 +129,17 @@ Page({
   },
 
   checkInput: function(name, value) {
-    var isInputValidate = true
+    let isInputValidate = this.data.isInputValidate
+    let res = 0
     switch (name) {
       case 'phonecode':
         var pattern = /^1[3-9][0-9]{9}$/;
-        isInputValidate &= pattern.test(value);
+        res = pattern.test(value);
+        res ? isInputValidate |= res : isInputValidate &= ~1
         break;
       case 'password':
-        isInputValidate &= value.length > 5
+        res = (value.length > 5) << 1
+        res ? isInputValidate |= res : isInputValidate &= ~(1 << 1)
         break;
     }
     this.setData({
@@ -179,6 +182,11 @@ Page({
               });
             }
           }
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none'
+          })
         }
       }).finally(()=>{
         wx.hideLoading()

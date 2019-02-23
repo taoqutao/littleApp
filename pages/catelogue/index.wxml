@@ -21,8 +21,6 @@
   <navigator class="page-item finish" open-type='switchTab' url="/pages/task/index">任务大厅</navigator>
   <navigator class="page-item finish" url="/pages/task/detail">任务详情</navigator>
   <navigator class="page-item finish" url="/pages/task/task">常规任务</navigator>
-  <navigator class="page-item finish" url="/pages/task/index2">未添加淘宝账号提示</navigator>
-  <navigator class="page-item finish" url="/pages/task/index">做任务选择淘宝账号</navigator>
 </view>
 
 <view>

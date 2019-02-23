@@ -4,89 +4,23 @@
     当前可提现金额
   </view>
   <view class='h3'>
-    0.00
+    {{info.availableMoney}}
   </view>
   <view class='h4'>
     <view class='item'>
       冻结金额
-      <text>0.00</text>
+      <text>{{info.money - info.availableMoney}}</text>
     </view>
     <view class='item'>
       账户余额
-      <text>0.00</text>
+      <text>{{info.money}}</text>
     </view>
     <view class='item'>
       累计收入
-      <text>0.00</text>
+      <text>{{info.sumMoney}}</text>
     </view>
   </view>
 </view>
 <view class='nav-link'>
-  <navigator class='item' url="/pages/center/tixian">
-    <view class='l'>
-      <image src='../../imgs/tx.png'></image>
-      <text>提现</text>
-    </view>
-    <view class='r'>
-      <image src='../../imgs/jt.png'></image>
-    </view>
-  </navigator>
-  <navigator class='item' url="/pages/center/alipaybind">
-    <view class='l'>
-      <image src='../../imgs/alipay.png'></image>
-      <text>绑定支付宝</text>
-    </view>
-    <view class='r'>
-      <text class='fc-grey fs26'>未绑定</text>
-      <image src='../../imgs/jt.png'></image>
-    </view>
-  </navigator>
-  <!-- <navigator class='item' url="/pages/center/qbi">
-    <view class='l'>
-      <image src='../../imgs/qq.png'></image>
-      <text>兑换话费/Q币</text>
-    </view>
-    <view class='r'>
-      <text class='fc-red fs26'>当天到账</text>
-      <image src='../../imgs/jt.png'></image>
-    </view>
-  </navigator> -->
-
-</view>
-<view class='nav-link'>
-  <navigator class='item' url="/pages/center/shouzi">
-    <view class='l'>
-      <image src='../../imgs/sz.png'></image>
-      <text>收支明细</text>
-    </view>
-    <view class='r'>
-      <image src='../../imgs/jt.png'></image>
-    </view>
-  </navigator>
-
-</view>
-<view class='nav-link'>
-  <navigator class='item' url="/pages/center/taobao">
-    <view class='l'>
-      <image src='../../imgs/tb.png'></image>
-      <text>绑定淘宝账户</text>
-    </view>
-    <view class='r'>
-      <text class='fs26'>您还可以绑定</text>
-      <text class='fc-red fs26'>4</text>
-      <text class='fs26'>个淘宝账户</text>
-      <image src='../../imgs/jt.png'></image>
-    </view>
-  </navigator>
-  <navigator class='item' url="/pages/other/help">
-    <view class='l'>
-      <image src='../../imgs/help.png'></image>
-      <text>帮助中心</text>
-    </view>
-    <view class='r'>
-      <image src='../../imgs/jt.png'></image>
-    </view>
-  </navigator>
-
-  <!-- <table dataSource='{{table_items}}'></table> -->
+  <table dataSource='{{table_items}}' bindcustomevent='tapCell'></table>
 </view>

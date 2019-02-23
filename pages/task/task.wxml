@@ -10,7 +10,7 @@
 
   <view class='task-img'>
     <block wx:for="{{categories}}" wx:for-index="idx" wx:for-item="item" wx:key='unique_row'>
-      <view class='img'>
+      <view class='img' bindtap='tapCategory'>
         <image src="{{item.iconUrl}}" mode='aspectFit' class='icon'></image>
         <text>{{item.platformName}}</text>
         <view class='shape' hidden='{{item.platformId != platformId}}'></view>
@@ -20,7 +20,7 @@
   <view class='task-nav'>
     <scroll-view scroll-x scroll-into-view="{{'id_' + taskId}}">
       <block wx:for="{{categories[selectedCategoryIndex].tasks}}" wx:for-index="idx" wx:for-item="item" wx:key='unique_row'>
-        <view class="item {{ item.id == taskId ? 'checked' : ''}}" id="{{'id_' + item.id}}">
+        <view class="item {{ item.id == taskId ? 'checked' : ''}}" id="{{'id_' + item.id}}" bindtap='tapTask'>
           <text class='h2'>{{item.name}}</text>
           <text class='h3'>{{'('+ item.number + ')'}}</text>
         </view>
@@ -35,7 +35,7 @@
     <block wx:for="{{taskList}}" wx:for-index="idx" wx:for-item="item" wx:key='item'>
       <view class='item'>
         <view class='h3' style='overflow: hidden;width:80%; text-overflow:ellipsis;white-space: nowrap;'>{{'商品名称：' + item.name}}</view>
-        <view class='h4'>{{item.description}}</view>
+        <view class='h4' style='width: 70%;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;'>{{item.description}}</view>
         <view class='h5'>
           <text class='fc-red fs30 b'>{{item.money}}</text>
           <text class='fc-red'>金币</text>

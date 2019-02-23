@@ -1,1 +1,104 @@
 /* pages/task/detail.wxss */
+.upload{
+  padding: 20rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.upload .item{
+  width: 200rpx;
+  height: 160rpx;
+  margin: 10rpx 60rpx;
+  border: 1rpx solid #ccc;
+}
+
+.upload .btn-upload {
+  background: #f2f5f7;
+  font-size: 100rpx;
+  font-weight: bold;
+  line-height: 140rpx;
+  color:#ccc;
+  border: none;
+}
+
+.model{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.model .bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6); 
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.model .content{
+  display: inline-block;
+  vertical-align: middle;
+  width: 80%;
+  position: relative;
+  z-index: 10;
+  background: #fff;
+  min-height: 100rpx;
+  padding: 20rpx ;
+  border-radius: 10rpx;
+}
+.model .content .title{
+  line-height: 60rpx;
+  border-bottom: 1rpx solid #eee;
+} 
+.model .content .body{
+  margin-top: 20rpx;
+  text-align: left;
+  padding: 10rpx;
+}
+.model .content.fangqi .btn{
+  margin:50rpx auto;
+  
+  width: 70%;
+  
+}
+.model .content.fangqi checkbox,.model .content.fangqi radio{
+  display: block;
+  margin-top: 20rpx;
+}
+.btn{
+  background: #fe5727;
+  margin:20rpx 20rpx;
+  color: #fff;
+  font-size: 30rpx;
+  padding: 5rpx 0;
+}
+
+.task-detail-h2{
+  background: #fff;
+  
+}
+.task-detail-h2 .txt{
+  line-height: 1.5;
+  padding: 20rpx 20rpx;
+}
+.mr20{
+  margin-right: 20rpx !important;
+}
+.task-detail-h2 .img{
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.task-detail-h2 .img image{
+  width: 320rpx;
+  height: 240rpx;
+}

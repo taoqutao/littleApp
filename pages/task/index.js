@@ -27,35 +27,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    twx.request({
-      url: '/api/user/listAssociateAccount',
-    }).then(({
-      data
-    }) => {
-      this.setData({
-        accounts: data
-      })
-    })
-    wx.showLoading()
-    twx.request({
-      url: '/api/task/listSystemTaskHall',
-      method: 'GET'
-    }).then(({
-      data
-    }) => {
-      this.setData({
-        data: data
-      })
-    }).finally(() => {
-      wx.hideLoading()
-    })
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.request()
   },
 
   /**
@@ -97,8 +76,30 @@ Page({
 
 
   },
-  modelClose: function() {
-
+  request: function() {
+    twx.request({
+      url: '/api/user/listAssociateAccount',
+      skipLogin: true
+    }).then(({
+      data
+    }) => {
+      this.setData({
+        accounts: data || {}
+      })
+    })
+    wx.showLoading()
+    twx.request({
+      url: '/api/task/listSystemTaskHall',
+      method: 'GET'
+    }).then(({
+      data
+    }) => {
+      this.setData({
+        data: data
+      })
+    }).finally(() => {
+      wx.hideLoading()
+    })
   },
   selectAccount: function(e) {
     wx.navigateTo({
@@ -106,10 +107,29 @@ Page({
     })
   },
   tapTask: function(e) {
+    
     let id = e.currentTarget.id.split('_')
     let platformId = parseInt(id[0]);
     let taskId = id[1];
-
+    if (JSON.stringify(this.data.accounts) === '{}') {
+      let account = platformId == 30 ? '京东' : '淘宝'
+      let path = '/pages/center/taobao?platformId=' + platformId
+      wx.showModal({
+        title: '提示',
+        content: '请添加您的' + account + '账号，最多可添加5个，账号添加完成才可做任务',
+        showCancel: true,
+        confirmColor: "#fe5727",
+        confirmText: '添加账号',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: path,
+            })
+          }
+        }
+      })
+      return;
+    }
     this.setData({
       selectedAccount: this.data.accounts[platformId],
       platformId: platformId,

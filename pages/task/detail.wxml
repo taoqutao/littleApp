@@ -1,24 +1,23 @@
 <view class='task-detail-h2 mt20'>
   <view class='txt'>
     任务商品
-    <view class='task-info'>商品编号：21212121</view>
+    <view class='task-info'>{{'商品编号：' + info.itemId}}</view>
   </view>
   <view class='bd'></view>
   <view class='img'>
-     <image src='https://c1.yaofangwang.net/Common/Upload/Medicine/578/578911/584e4a51-2a10-4e9d-b5a6-fb84f4386be04692.jpg_300x300.jpg'></image>
-         <image src='https://c1.yaofangwang.net/Common/Upload/Medicine/578/578911/584e4a51-2a10-4e9d-b5a6-fb84f4386be04692.jpg_300x300.jpg'></image>
+    <image wx:for='{{info.imageList}}' src='{{item}}' mode='aspectFit'></image>
   </view>
   <view class='txt'>
-    <text class='fc-grey mr20'>商品名称:</text>雨刮器
+    <text class='fc-grey mr20'>{{'商品名称：' + info.goodsName}}</text>
   </view>
-    <view class='txt'>
-    <text class='fc-grey mr20'>价格:</text>66元
+  <view class='txt'>
+    <text class='fc-grey mr20'>{{'价格：' + info.money}}</text>
   </view>
-    <view class='txt'>
-    <text class='fc-grey mr20'>店铺名称:</text>直通车
+  <view class='txt'>
+    <text class='fc-grey mr20'>{{'店铺名称：' + info.shopName}}</text>
   </view>
-    <view class='txt'>
-    <text class='fc-grey mr20'>掌柜名称:</text>直通车
+  <view class='txt'>
+    <text class='fc-grey mr20'>{{'掌柜名称：' + info.taskUserName}}</text>
   </view>
 
 </view>
@@ -28,17 +27,21 @@
   </view>
   <view class='bd'></view>
   <view class='txt'>
-    <text class='fc-grey mr20'>任务类型:</text>直通车
+    <text class='fc-grey mr20'>任务类型： </text>
+    <text>{{info.searchName}}</text>
   </view>
-  
-<view class='txt'>
-    <text class='fc-grey mr20'>搜索关键字:</text>原装无骨雨刷<text class='fc-red'>（长按复制）</text>
+
+  <view class='txt' bindlongpress='pressKeyword'>
+    <text class='fc-grey mr20'>搜索关键字:</text>
+    <text>{{info.keyWord}}</text>
+    <text class='fc-red'>（长按复制）</text>
   </view>
-  
+
   <view class='txt'>
-    <text class='fc-grey mr20'>筛选:</text>包邮+花呗
+    <text class='fc-grey mr20'>筛选：</text>
+    <text>{{info.keyWord}}</text>
   </view>
-  
+
 </view>
 <view class='task-detail-h2 mt20'>
   <view class='txt'>
@@ -46,7 +49,7 @@
   </view>
   <view class='bd'></view>
   <view class='txt'>
-    浏览商品5分钟+评价商品
+    {{info.taskName}}
   </view>
 
 </view>
@@ -58,18 +61,27 @@
 
   <view class='bd mt20'></view>
   <view class='upload'>
-    <view class='item'>
-      <image src='https://c1.yaofangwang.net/Common/Upload/Medicine/578/578911/584e4a51-2a10-4e9d-b5a6-fb84f4386be04692.jpg_300x300.jpg'></image>
-      <button class='btn-upload'>+</button>
-      <text>商品底部截图</text>
-    </view>
-    <view class='item'>
-      <image src='https://c1.yaofangwang.net/Common/Upload/Medicine/578/578911/584e4a51-2a10-4e9d-b5a6-fb84f4386be04692.jpg_300x300.jpg'></image>
-      <button class='btn-upload'>+</button>
-      <text>商品底部截图</text>
-    </view>
+    <block wx:for='{{imgs}}'>
+      <image class='item' src='{{item}}'></image>
+    </block>
+    <button class='item btn-upload' bindtap='tapImg'>+</button>
   </view>
 </view>
 
-<button class='btn'>确认任务</button>
-<button class='btn outline mt20'>放弃任务</button>
+<button class='btn' bindtap='tapSubmit' disabled='{{!imgs.length}}'>确认任务</button>
+<button class='btn outline mt20' bindtap='tapCancel' >放弃任务</button>
+
+
+<view class='model' wx:if='{{showTips}}' catchtap='tapTipWindow'>
+  <view class='bg' ></view>
+  <view class='content fangqi' catchtap>
+    <view class='title'>放弃原因</view>
+    <view class='body'>
+      <radio-group bindchange="radioChange">
+        <radio wx:for='{{tips}}' value="{{item}}">{{item}}</radio>
+      </radio-group>
+    </view>
+    <button class='btn' bindtap='tapCancelConfirm' disabled='{{!tip}}'>确认</button>
+  </view>
+  <view class='y-center'></view>
+</view>

@@ -1,1 +1,39 @@
 /* pages/center/shouzi.wxss */
+
+.shouzi .row {
+  background: #fff;
+  padding: 0 20rpx;
+}
+
+.shouzi .col1 {
+  width: 350rpx;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 50rpx;
+  padding: 10rpx 0;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.shouzi .col2 {
+  width: 250rpx;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 50rpx;
+  padding: 10rpx 0;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.shouzi .col3 {
+  width: 100rpx;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 50rpx;
+  padding: 10rpx 0;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}

@@ -2,16 +2,18 @@
 <view class='model' wx:if='{{status}}'>
   <view class='bg' bindtap='modelClose'></view>
   <view class='content fangqi'>
-    <view class='title'>选择做任务的淘宝账号</view>
+    <view class='title'>选择做任务的账号</view>
     <view class='body'>
       <radio-group bindchange='tapRadio'>
-        <block wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" wx:key='unique_row'>
-          <radio bindchange='tapRadio' value='{{item.id}}' checked='{{idx == 0 ? true : false}}'>{{item.account}}
-            <text class='fc-grey ml20'>今日还可接 </text>
-            <text class='fc-red'>{{item.taskNum}}</text>
-            <text class='fc-grey ml20'>单</text>
-          </radio>
-        </block>
+        <scroll-view scroll-y style='width:100%;max-height:400rpx;'>
+          <block wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" wx:key='unique_row'>
+            <radio bindchange='tapRadio' value='{{item.id}}' checked='{{idx == 0 ? true : false}}'>{{item.account}}
+              <text class='fc-grey ml20'>今日还可接 </text>
+              <text class='fc-red'>{{item.taskNum}}</text>
+              <text class='fc-grey ml20'>单</text>
+            </radio>
+          </block>
+        </scroll-view>
       </radio-group>
     </view>
     <button class='btn' bindtap='tapConfim'>确认</button>

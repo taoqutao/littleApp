@@ -175,8 +175,7 @@ Page({
       success: ({data}) => {
         if (data.code) {
           that.setData({
-            codeurl: 'data:image/png;base64,'+wx.arrayBufferToBase64(wx.base64ToArrayBuffer(data.data.image)),
-            cookie: data.data.jSessionId
+            codeurl: 'data:image/png;base64,'+wx.arrayBufferToBase64(wx.base64ToArrayBuffer(data.data.image))
           })
         }
       }

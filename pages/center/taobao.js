@@ -13,13 +13,18 @@ Page({
     level: '10',
     account: '',
     gender: 'M',
+    platformName: '淘宝'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    const {platformId} = options
+    this.data.platformId = platformId
+    this.setData({
+      platformName: platformId == 30 ? '京东' : '淘宝'
+    })
   },
 
   /**
@@ -114,7 +119,7 @@ Page({
         "userInfoImg": this.data.imgs[0],
         "userCenterImg": this.data.imgs[1],
         "sex": this.data.gender,
-        "type": 10 //账号类型  10 淘宝  30 京东 20  天猫
+        "type": this.data.platformId //账号类型  10 淘宝  30 京东 20  天猫
       }
       twx.request({
         url: '/api/user/bindAccount',
@@ -126,12 +131,22 @@ Page({
             title: '绑定成功',
             icon: 'none'
           })
+          setTimeout(()=>{
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1000)
         } else {
           wx.showToast({
-            title: '绑定失败',
+            title: res.message,
             icon: 'none'
           })
         }
+      }).catch((err)=>{
+        wx.showToast({
+          title: '绑定失败',
+          icon: 'none'
+        })
       }).finally(()=>{
         wx.hideLoading()
       })

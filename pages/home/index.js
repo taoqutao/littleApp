@@ -70,7 +70,7 @@ Page({
   requestTask: function() {
     wx.showLoading()
     twx.request({
-      url: '/api/task/listUserTask',
+      url: '/api/task/listUserTaskStatus',
       method: 'GET'
     }).then((res) => {
       this.setData({
@@ -80,5 +80,16 @@ Page({
       wx.hideLoading()
     })
 
+  },
+  tapBtn: function(e) {
+    const {target: {
+      dataset: {
+        taskid
+      } = {}
+    } = {} } = e
+
+    wx.navigateTo({
+      url: '/pages/task/detail?taskId=' + taskid ,
+    })
   }
 })

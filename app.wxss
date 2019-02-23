@@ -247,20 +247,7 @@ text{
   border-color: #fe5727;
   color: #fe5727;
 }
-.shouzi .row{
-  background: #fff;
-  padding: 0 20rpx;
-}
-.shouzi .col1,.shouzi .col2,.shouzi .col3{
-  width: 300rpx;
-  display: inline-block;
-  vertical-align: top;
-  line-height: 50rpx;
-  padding: 10rpx 0;
-}
-.shouzi .col3{
-  width: 100rpx;
-}
+
 .warnning{
   color: #fe5727;
   padding-left: 20rpx;
@@ -271,33 +258,7 @@ text{
 .mt20{
   margin-top: 20rpx;
 }
-.upload{
-  padding: 20rpx;
-  text-align: center
-}
-.upload .item{
-  display: inline-block;
-  width: 200rpx;
-  margin: 10rpx 30rpx;
-}
-.upload .item image{
-  width: 198rpx;
-  height: 158rpx;
-  border: 1rpx solid #ccc;
-}
-.upload .item .btn-upload{
-  background: #f2f5f7;
-  font-size: 100rpx;
-  font-weight: bold;
-  width: 200rpx;
-  height: 160rpx;
-  line-height: 160rpx;
-   display: inline-block;
-  color:#ccc;
-  border:1rpx soid #f2f5f7;
-  border-radius: 0;
-  margin: 20rpx 0;
-}
+
 .index-top{
   height: 400rpx;
   background: #fe761f;
@@ -470,26 +431,7 @@ text{
   text-align: right;
   margin-top: -34rpx;
 }
-.task-detail-h2{
-  background: #fff;
-  
-}
-.task-detail-h2 .txt{
-  line-height: 1.5;
-  padding: 20rpx 20rpx;
-}
-.mr20{
-  margin-right: 20rpx !important;
-}
-.task-detail-h2 .img{
-  text-align: center;
-}
-.task-detail-h2 .img image{
-  width: 320rpx;
-  height: 240rpx;
-  display: inline-block;
 
-}
 .task-list2{
   padding: 0  20rpx ;
 }

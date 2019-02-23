@@ -9,81 +9,81 @@ Page({
    * 页面的初始数据
    */
   data: {
-    alipaycode: "16602134065",
-    name: "123456",
-    isInputValidate: false
+    alipaycode: "",
+    namecode: "",
+    isInputValidate: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function(options) {
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function() {
+
   },
 
-  inputChange: function (e) {
+  inputChange: function(e) {
     let value = e.detail.value;
     let curName = e.target.dataset.name;
-    checkInput(curName, value)
+    this.checkInput(curName, value)
 
     switch (curName) {
-      case 'phonecode':
+      case 'alipaycode':
         this.setData({
-          phonecode: value,
+          alipaycode: value,
         });
         break;
-      case 'name':
+      case 'namecode':
         this.setData({
-          name: value,
+          namecode: value,
         });
         break;
     }
@@ -95,15 +95,17 @@ Page({
     }
   },
 
-  checkInput: function (name, value) {
-    var isInputValidate = true
-    switch (curName) {
-      case 'phonecode':
-        var pattern = /^1[3-9][0-9]{9}$/;
-        isInputValidate &= pattern.test(value);
+  checkInput: function(name, value) {
+    let isInputValidate = this.data.isInputValidate
+    let res = 0
+    switch (name) {
+      case 'alipaycode':
+        res = (value.length > 0)
+        res ? isInputValidate |= res : isInputValidate &= ~1
         break;
-      case 'name':
-        isInputValidate &= value.length > 0
+      case 'namecode':
+        res = (value.length > 0) << 1
+        res ? isInputValidate |= res : isInputValidate &= ~(1 << 1)
         break;
     }
     this.setData({
@@ -113,16 +115,35 @@ Page({
 
   tapBind: function(e) {
     let param = {
-      "account": this.data.alipaycode, 
-      "trueName": this.data.name,
+      "account": this.data.alipaycode,
+      "trueName": this.data.namecode,
     }
     wx.showLoading()
     twx.request({
       url: '/api/user/bindAlipay',
       data: param
-    }).then((res)=>{
-      console.log(res)
-    }).finally(()=>{
+    }).then((res) => {
+      if (res.code) {
+        wx.showToast({
+          title: '绑定成功',
+        })
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none'
+        })
+      }
+    }).catch(() => {
+      wx.showToast({
+        title: '请求失败',
+        icon: 'none'
+      })
+    }).finally(() => {
       wx.hideLoading()
     })
   }
