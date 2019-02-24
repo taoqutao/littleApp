@@ -52,12 +52,6 @@
         "pagePath": "pages/my/mytask",
         "iconPath": "imgs/per.png",
         "selectedIconPath": "imgs/per.png"
-      },
-      {
-        "text": "网站清单",
-        "pagePath": "pages/catelogue/index",
-        "iconPath": "imgs/task.png",
-        "selectedIconPath": "imgs/task.png"
       }
     ]
   }

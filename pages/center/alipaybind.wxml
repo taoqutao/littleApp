@@ -9,6 +9,6 @@
       <input data-name="namecode" bindinput='inputChange' class='txt' placeholder='请输入真实名称'></input>
    </view>
 </view>
-<text class='h1 fc-red mt0'>请仔细填写以上信息，并注意填写的支付宝账户、昵称和绑定的身份证持有人保持一致，一面对您的体现造成影响
+<text class='h1 fc-red mt0'>请仔细填写以上信息，并注意填写的支付宝账户、昵称和绑定的身份证持有人保持一致，以免对您的体现造成影响
 </text>
    <button class='btn' bindtap='tapBind' disabled='{{isInputValidate != 3}}'>立即绑定</button>

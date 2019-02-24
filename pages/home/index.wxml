@@ -9,7 +9,7 @@
           <text class='fc-base'>{{'单(' + item.taskTotalFee + '金币)'}}</text>
         </view>
         <view class='h4'>
-          <text class='fc-base'>15分钟</text>内未提交任务，系统将自动取消任务</view>
+          {{item.desc}}</view>
         <button wx:if='{{item.statusValue == 10 && item.taskNum > 0}}' catchtap='tapBtn' class='btn' data-taskId="{{item.taskId}}">继续任务</button>
       </view>
     </block>

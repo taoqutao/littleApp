@@ -10,7 +10,8 @@ Page({
     captcha:'',
     password:'',
     isInputValidate:0,
-    cookie:''
+    cookie:'',
+    fromPageLevel: 1
   },
 
   /**

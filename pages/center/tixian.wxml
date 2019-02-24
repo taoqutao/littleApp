@@ -1,7 +1,7 @@
 <import src="../../component/mytoast/mytoast.wxml" />
 <template is="toast" data="{{ ..._toast_ }}" />
 
-<text class='h1 fc-red mt0'>温馨提示：请确认提现账户是否正确，否则确认提现后将无法更改，体现成功后，资金将在5个工作日内到达您的账户</text>
+<text class='h1 fc-red mt0'>温馨提示：请确认提现账户是否正确，否则确认提现后将无法更改，提现成功后，资金将在5个工作日内到达您的账户</text>
 <view class='form big'>
   <view class='form-ctrl'>
     <label>支付宝账号</label>

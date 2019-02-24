@@ -82,12 +82,9 @@ Page({
     })
   },
 
-  bindPickerChange: function(e) {
-    let index = parseInt(e.detail.value)
-    this.setData({
-      index: index,
-      level: (index + 1) * 10+""
-    })
+  inputLevelChange: function(e) {
+    let value = e.detail.value;
+    this.data.level = value;
   },
 
   tapRadio: function(e) {

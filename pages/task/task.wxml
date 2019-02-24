@@ -1,12 +1,12 @@
 <!--pages/task/task.wxml-->
 <view class='main'>
-  <view class='task-index-h1'>
+  <!-- <view class='task-index-h1'>
     <image src='../../imgs/tz.png'></image>
     <text>165****0001</text>
     <text>已成功获得</text>
     <text class='fc-red'>12.00金币</text>
     <text>任务佣金</text>
-  </view>
+  </view> -->
 
   <view class='task-img'>
     <block wx:for="{{categories}}" wx:for-index="idx" wx:for-item="item" wx:key='unique_row'>
@@ -29,7 +29,7 @@
   </view>
   <view class='task-list2'>
     <view class='h1'>
-      注意：禁止私下联系商家，如有商家举报，一经查实，初犯罚款10金币，再犯封号！
+      注意：禁止私下联系商家，如有商家举报，一经查实，初犯罚款2金币，再犯封号！
     </view>
     <view class='bd mt20'></view>
     <block wx:for="{{taskList}}" wx:for-index="idx" wx:for-item="item" wx:key='item'>
