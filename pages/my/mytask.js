@@ -33,6 +33,9 @@ Page({
         {
           thumbnail: "/imgs/help.png",
           title: "帮助中心",
+        },
+        {
+          slot: 'share'
         }
       ]
     ],
@@ -93,7 +96,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      title: '玩手机轻松赚取零花钱',
+      path: '/pages/task/index',
+      imageUrl: '/imgs/mini_share.png'
+    }
   },
 
   loginIfNeeded: function() {
@@ -177,6 +184,9 @@ Page({
             return;
           case 2:
             path = '/pages/other/help'
+            break;
+          case 3:
+            this.share()
             break;
         }
         break;

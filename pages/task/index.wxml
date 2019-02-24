@@ -1,5 +1,11 @@
 <!--pages/task/index.wxml-->
-<image src='../../imgs/bar.jpg' class='task-index-img'></image>
+<swiper class='header' indicator-dots='{{banners.length > 1}}' autoplay='true' interval="4000" duration="2000" circular>
+  <block wx:for="{{banners}}">
+    <swiper-item>
+      <image src="{{item}}" class="banner-img" mode="aspectFill" bindtap='tapBanner' data-index='{{index}}'/>
+    </swiper-item>
+  </block>
+</swiper>
 <block wx:for="{{data}}" wx:for-index="section-idx" wx:for-item="section" wx:key='unique_data'>
   <view style='height:40rpx;width:100% '>
   </view>

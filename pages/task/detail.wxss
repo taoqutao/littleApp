@@ -88,6 +88,13 @@
   line-height: 1.5;
   padding: 20rpx 20rpx;
 }
+.task-detail-h2 .txt1{
+  line-height: 1.5;
+  padding: 20rpx 20rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 .mr20{
   margin-right: 20rpx !important;
 }
@@ -101,4 +108,18 @@
 .task-detail-h2 .img image{
   width: 320rpx;
   height: 240rpx;
+}
+
+.box {
+  border: 1px solid red;
+  color: red;
+  width: 110rpx;
+  height: 30rpx;
+  font-size: 24rpx;
+  border-radius: 6rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 10rpx;
 }

@@ -333,12 +333,6 @@ text{
 .nav-link .item .r text{
   vertical-align: middle;
 }
-
-.task-index-img{
-  width: 100%;
-  display: block;
-  height: 200rpx;
-}
 .task-index-h1{
   background: #fff;
   height: 80rpx;

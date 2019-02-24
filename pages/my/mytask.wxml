@@ -1,4 +1,5 @@
 <!--pages/task/mytask.wxml-->
+<import src='component/tableview/cell/cell.wxml' />
 <view class='index-top'>
   <view class='h2'>
     当前可提现金额
@@ -22,5 +23,17 @@
   </view>
 </view>
 <view class='nav-link'>
-  <table dataSource='{{table_items}}' bindcustomevent='tapCell'></table>
+  <table dataSource='{{table_items}}' bindcustomevent='tapCell'>
+    <button slot='share' class='button' open-type ='share'>
+      <view class='content' style="border-bottom: 1px solid #e0e0e0；">
+        <view class='wrapper1' style='margin-left: 0'>
+          <image class='thumbnail' mode='aspectFit' src='/imgs/share.png'></image>
+          <view class='title'>分享</view>
+        </view>
+        <view class='wrapper2' >
+          <view class='arrow' style='margin-right: 0'></view>
+        </view>
+      </view>
+    </button>
+  </table>
 </view>

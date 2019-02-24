@@ -147,6 +147,18 @@ Page({
         const {
           data = {}
         } = res
+        let rpl = (str) => {
+          str = String(str)
+          if (str.length) {
+            return '**' + str.slice(1, str.length)
+          }
+          return str
+        }
+
+        data.goodsName = rpl(data.goodsName)
+        data.money = rpl(data.money)
+        data.taskUserName = rpl(data.taskUserName)
+        data.shopName = rpl(data.shopName)
         this.setData({
           info: data
         })
@@ -156,6 +168,7 @@ Page({
       wx.hideLoading()
     })
   },
+
   tapSubmit: function() {
 
     this.data.imgs.length && (wx.showLoading(), twx.request({

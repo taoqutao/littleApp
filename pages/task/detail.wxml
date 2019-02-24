@@ -31,10 +31,10 @@
     <text>{{info.searchName}}</text>
   </view>
 
-  <view class='txt' bindlongpress='pressKeyword'>
+  <view class='txt1' bindtap='pressKeyword'>
     <text class='fc-grey mr20'>搜索关键字:</text>
     <text>{{info.keyWord}}</text>
-    <text class='fc-red'>（长按复制）</text>
+    <view class='box'>点击复制</view>
   </view>
 
   <view class='txt'>

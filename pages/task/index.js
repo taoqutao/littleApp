@@ -13,7 +13,8 @@ Page({
     accounts: {},
     selectedAccount: {},
     platformId: '',
-    taskId: ''
+    taskId: '',
+    banners: ['/imgs/bar.jpg', '/imgs/bar2.png']
   },
 
   /**
@@ -27,7 +28,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    
+
   },
 
   /**
@@ -107,7 +108,7 @@ Page({
     })
   },
   tapTask: function(e) {
-    
+
     let id = e.currentTarget.id.split('_')
     let platformId = parseInt(id[0]);
     let taskId = id[1];
@@ -120,7 +121,7 @@ Page({
         showCancel: true,
         confirmColor: "#fe5727",
         confirmText: '添加账号',
-        success: function (res) {
+        success: function(res) {
           if (res.confirm) {
             wx.navigateTo({
               url: path,
@@ -136,5 +137,24 @@ Page({
       taskId: taskId
     })
     this.selectComponent("#accountView").setStatus(true)
+  },
+  tapBanner: function(e) {
+    e.target.dataset.index
+    const {
+      target: {
+        dataset: {
+          index
+        }
+      }
+    } = e
+    switch (parseInt(index)) {
+      case 0:
+        wx.navigateTo({
+          url: '/pages/other/register',
+        })
+        break;
+      case 1:
+        break
+    }
   }
 })
