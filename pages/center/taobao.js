@@ -10,7 +10,7 @@ Page({
     array: ['普通会员', '白金会员', '铂金会员', '钻石会员'],
     index: 0,
     imgs: ["", ""],
-    level: '10',
+    level: '',
     account: '',
     gender: 'M',
     platformName: '淘宝'

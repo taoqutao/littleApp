@@ -10,7 +10,9 @@
       <block wx:if='{{row.data.slot}}'>
         <slot name='{{row.data.slot}}' />
       </block>
-      <template is='cell' wx:else data='{{...row}}' bind:tap='tapItem'></template>
+      <view wx:else bind:tap='tapItem' data-index='{{row.index}}'>
+        <template is='cell' data='{{...row}}'></template>
+      </view>
     </block>
   </block>
 </view>

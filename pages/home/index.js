@@ -82,14 +82,60 @@ Page({
 
   },
   tapBtn: function(e) {
-    const {target: {
-      dataset: {
-        taskid
+    const {
+      target: {
+        dataset: {
+          taskid
+        } = {}
       } = {}
-    } = {} } = e
+    } = e
 
     wx.navigateTo({
-      url: '/pages/task/detail?taskId=' + taskid ,
+      url: '/pages/task/detail?taskId=' + taskid,
     })
+  },
+  tapItem: function(e) {
+    const {
+      currentTarget: {
+        dataset: {
+          status
+        } = {}
+      } = {}
+    } = e
+
+    wx.showLoading()
+    twx.request({
+      url: '/api/task/listUserTask',
+      method: 'GET',
+      data: {
+        status: status
+      }
+    }).then((res) => {
+      if (res.code) {
+        if (res.data.length)
+          wx.navigateTo({
+            url: '/pages/task/list?state=' + status,
+          })
+        else {
+          wx.showToast({
+            title: '没有相关任务',
+            icon: 'none'
+          })
+        }
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none'
+        })
+      }
+    }).catch((err) => {
+      wx.showToast({
+        title: '请求失败',
+        icon: 'none'
+      })
+    }).finally(() => {
+      wx.hideLoading()
+    })
+
   }
 })

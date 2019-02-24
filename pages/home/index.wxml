@@ -2,7 +2,7 @@
 <view class='main'>
   <view class='tasklist'>
     <block wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" wx:key='item'>
-      <view class='item'>
+      <view class='item' bindtap='tapItem' data-status="{{item.statusValue}}">
         <view class='h3'>
           <text class='b mr40'>{{item.status}}</text>
           <text class='b fc-base'>{{item.taskNum}}</text>
@@ -10,7 +10,7 @@
         </view>
         <view class='h4'>
           <text class='fc-base'>15分钟</text>内未提交任务，系统将自动取消任务</view>
-        <button wx:if='{{item.statusValue == 10 && item.taskNum > 0}}' bindtap='tapBtn' class='btn' data-taskId="{{item.taskId}}">继续任务</button>
+        <button wx:if='{{item.statusValue == 10 && item.taskNum > 0}}' catchtap='tapBtn' class='btn' data-taskId="{{item.taskId}}">继续任务</button>
       </view>
     </block>
 

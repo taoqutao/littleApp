@@ -10,7 +10,7 @@
   <view class='bd'></view>
   <view class='form-ctrl'>
     <label>提现金额</label>
-    <input class='txt' type='number' placeholder='请输入提现金额' data-name="money" bindinput='inputChange'></input>
+    <input class='txt' type='number' placeholder='最低20且为10的倍数增加' data-name="money" bindinput='inputChange'></input>
   </view>
 </view>
 <text class='h1 fc-red mt0 text-center' wx:if='{{money && money <= 0}}'>帐户余额不足</text>

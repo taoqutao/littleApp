@@ -108,7 +108,9 @@ Page({
     })
   },
   tapTask: function(e) {
-
+    if (!twx.isLogin(true, this)) {
+      return;
+    }
     let id = e.currentTarget.id.split('_')
     let platformId = parseInt(id[0]);
     let taskId = id[1];

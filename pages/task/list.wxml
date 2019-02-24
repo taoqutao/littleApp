@@ -1,0 +1,16 @@
+<!--pages/task/list.wxml-->
+<view style='overflow-x: hidden;width:100%'>
+  <block wx:for='{{[1, 2]}}'>
+    <view class='item'>
+      <view class='first'>
+        <view class='content'>{{item.time}}</view>
+        <view class='wrapper'>
+          {{'编号：' + item.taskId}}
+        </view>
+      </view>
+      <view class='content2'>
+        <view style='word-break:break-all;'>{{item.remark}}</view>
+      </view>
+    </view>
+  </block>
+</view>

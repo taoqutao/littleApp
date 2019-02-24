@@ -6,6 +6,10 @@
     </swiper-item>
   </block>
 </swiper>
+<view class='task-index-h1'>
+    <image src='../../imgs/tz.png'></image>
+    <text>新用户注册即送大礼包～</text>
+  </view>
 <block wx:for="{{data}}" wx:for-index="section-idx" wx:for-item="section" wx:key='unique_data'>
   <view style='height:40rpx;width:100% '>
   </view>
@@ -16,8 +20,8 @@
       <text class='h3 '>{{section.desc}}</text>
     </view>
   </view>
-  <view style='height:40rpx;width:100% '>
-  </view>
+  <!-- <view style='height:40rpx;width:100% '>
+  </view> -->
   <view class='item-container '>
     <block wx:for="{{section.taskTypeList}}" wx:for-index="idx" wx:for-item="item" wx:key='unique_row '>
       <view class='item ' id="{{section.platformId+'_'+item.type}}" bindtap='tapTask'>

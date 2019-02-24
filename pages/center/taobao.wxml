@@ -22,8 +22,8 @@
   <view class='form-ctrl'>
     <label>会员等级</label>
     <picker class="txt" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view>
-        {{array[index]}}
+      <view style="{{level.length ? '' : 'color:#bdbdbd'}}">
+        {{level.length ? array[index] : '请选择您的信誉登记'}}
       </view>
     </picker>
   </view>

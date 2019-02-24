@@ -19,7 +19,8 @@
     "pages/center/huafei",
     "pages/task/detail",
     "pages/task/task",
-    "pages/center/accout"
+    "pages/center/accout",
+    "pages/task/list"
   ],
   "window": {
     "backgroundTextStyle": "light",

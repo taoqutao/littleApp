@@ -22,3 +22,17 @@ button {
 button::after {
   border: none;
 }
+
+.btn {
+  width: 660rpx;
+  height: 82rpx;
+  margin-top: 38rpx;
+  margin-left: 45rpx; 
+  color: white;
+  background-color: #ED605A;
+  font-size: 40rpx;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

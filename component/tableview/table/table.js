@@ -20,7 +20,7 @@ Component({
   data: {
     items: [],
     aa: {
-      title:'a'
+      title: 'a'
     }
   },
 
@@ -47,8 +47,15 @@ Component({
     },
 
     tapItem: function(e) {
+      const {
+        currentTarget: {
+          dataset: {
+            index
+          }
+        }
+      } = e
       this.triggerEvent('customevent', {
-        "index": e.target.id
+        "index": index
       }, {
         bubbles: true,
         composed: true

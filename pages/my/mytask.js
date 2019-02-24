@@ -224,4 +224,33 @@ Page({
       wx.hideLoading()
     })
   },
+
+  tapDone: function() {
+    wx.showLoading()
+    twx.request({
+      url: '/api/userLogout',
+    }).then((data) => {
+      if (data.code) {
+        wx.removeStorageSync('twxlogin_userId')
+        wx.showToast({
+          title: '退出成功',
+        })
+        setTimeout(() => {
+          wx.switchTab({
+            url: '/pages/task/index',
+          })
+        }, 1000)
+      } else {
+        wx.showToast({
+          title: data.message,
+        })
+      }
+    }).catch((err) => {
+      wx.showToast({
+        title: '请求失败',
+      })
+    }).finally(() => {
+      wx.hideLoading()
+    })
+  }
 })

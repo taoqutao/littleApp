@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "淘趣淘",
   "usingComponents": {
     "ac": "/component/accountview/accountview"
   }

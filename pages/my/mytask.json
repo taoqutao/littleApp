@@ -2,10 +2,10 @@
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 200,
   "backgroundTextStyle": "black",
-  "navigationBarBackgroundColor": "#FE761F",
-  "navigationBarTitleText": "淘趣淘",
+  "navigationBarBackgroundColor": "#FF5452",
+  "navigationBarTitleText": "个人中心",
   "navigationBarTextStyle": "white",
-  "backgroundColorTop": "#FE761F",
+  "backgroundColorTop": "#FF5452",
   "usingComponents": {
     "table": "/component/tableview/table/table"
   }
