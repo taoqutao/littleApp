@@ -1,0 +1,10 @@
+<!--pages/center/accout.wxml-->
+<view class='item' style='background-color:rgba(0,0,0,0)'>
+  <text class='t2'>{{'最多可绑定5个' +  accountType + '账号'}}</text>
+</view>
+<view class='item board' wx:for='{{accounts}}'>
+  <view class='t1'>{{accountType + '账号' + (index+1)}}</view>
+  <view class='input' >{{item.account}}</view>
+</view>
+
+<view class='btn' bindtap='tapDone'>添加绑定</view>

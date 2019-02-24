@@ -35,15 +35,16 @@ function jumpLogin(obj) {
 
   setTimeout(function () {
     //为1代表是第一层页面，采用可返回跳转navigateTo
-    if (fromPageLevel && fromPageLevel == 1) {
+    // if (fromPageLevel && fromPageLevel == 1) {
       wx.navigateTo({
         url: '/pages/other/login?returnpage=' + returnpage + (fromPageType ? '&fromPageType=' + fromPageType : '')
       })
-    } else {
-      wx.redirectTo({
-        url: '/pages/other/login?returnpage=' + returnpage + (fromPageType ? '&fromPageType=' + fromPageType : '')
-      })
-    }
+    // }
+    //  else {
+    //   wx.redirectTo({
+    //     url: '/pages/other/login?returnpage=' + returnpage + (fromPageType ? '&fromPageType=' + fromPageType : '')
+    //   })
+    // }
 
   }, 500)
 }

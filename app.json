@@ -17,9 +17,9 @@
     "pages/center/tixian",
     "pages/center/qbi",
     "pages/center/huafei",
-    "pages/center/taobao2",
     "pages/task/detail",
-    "pages/task/task"
+    "pages/task/task",
+    "pages/center/accout"
   ],
   "window": {
     "backgroundTextStyle": "light",

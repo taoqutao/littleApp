@@ -170,11 +170,11 @@ Page({
       case 2:
         switch (row) {
           case 0:
-            path = '/pages/center/taobao?platformId=10'
-            break;
+            this.bindAccount('10')
+            return;
           case 1:
-            path = '/pages/center/taobao?platformId=30'
-            break;
+            this.bindAccount('30')
+            return;
           case 2:
             path = '/pages/other/help'
             break;
@@ -184,5 +184,34 @@ Page({
     wx.navigateTo({
       url: path,
     })
-  }
+  },
+
+  bindAccount: function (platformId) {
+    wx.showLoading()
+    twx.request({
+      url: '/api/user/listAssociateAccount',
+      skipLogin: true
+    }).then(({
+      data
+    }) => {
+      if (data && data[platformId]) {
+        let path = '/pages/center/accout?platformId=' + platformId
+        wx.navigateTo({
+          url: path,
+        })
+      } else {
+        let path = '/pages/center/taobao?platformId=' + platformId
+        wx.navigateTo({
+          url: path,
+        })
+      }
+    }).catch((err) => {
+      wx.showToast({
+        title: '请求失败',
+        icon: 'none'
+      })
+    }).finally(() => {
+      wx.hideLoading()
+    })
+  },
 })
