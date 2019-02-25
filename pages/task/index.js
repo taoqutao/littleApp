@@ -14,7 +14,8 @@ Page({
     selectedAccount: {},
     platformId: '',
     taskId: '',
-    banners: ['/imgs/bar.jpg', '/imgs/bar2.png']
+    banners: ['/imgs/bar.jpg', '/imgs/bar2.png'],
+    fromPageLevel: 1
   },
 
   /**

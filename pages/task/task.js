@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    taskList:[],
+    taskList: [],
     accountId: null,
     platformId: null,
     taskId: null,
@@ -17,7 +17,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData(options)
 
     this.getData()
@@ -35,13 +35,13 @@ Page({
       }
     }).then((res) => {
       if (res && res.code) {
-        return res.data.list.map((item, index)=>{
+        return res.data.list.map((item, index) => {
           return {
             name: item.goodsName,
             description: item.taskName,
             money: item.money,
             count: item.remainCount,
-            state: 1,
+            state: item.status == 1,
             id: item.id
           }
         })
@@ -92,58 +92,117 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function() {
+
+  },
+
+  requestTasks: function() {
+    let list = []
+    wx.showLoading()
+    twx.request({
+      url: '/api/task/listSystemTaskType',
+      method: 'GET',
+      data: {
+        platformType: this.data.platformId,
+        taskType: this.data.taskId,
+        account: this.data.accountId
+      }
+    }).then((res) => {
+      if (res && res.code) {
+        list = res.data.list.map((item, index) => {
+          return {
+            name: item.goodsName,
+            description: item.taskName,
+            money: item.money,
+            count: item.remainCount,
+            state: item.status == 1,
+            id: item.id
+          }
+        })
+      }
+      this.setData({
+        taskList: list
+      })
+    }).finally(() => {
+      wx.hideLoading()
+    })
+
   },
 
   tapCategory: function(e) {
-    
+    const {
+      currentTarget: {
+        dataset: {
+          index = 0,
+          id
+        }
+      }
+    } = e
+
+    this.setData({
+      platformId: id,
+      selectedCategoryIndex: index,
+      taskId: this.data.categories[index].tasks[0].id
+    })
+
+    this.requestTasks()
   },
 
-  tapTask: function (e) {
+  tapTask: function(e) {
+    const {
+      currentTarget: {
+        dataset: {
+          id
+        }
+      }
+    } = e
+    this.setData({
+      taskId: id
+    })
 
+    this.requestTasks()
   },
 
   takeTask: function(e) {
@@ -170,7 +229,7 @@ Page({
           icon: 'none'
         })
       }
-    }).catch(()=>{
+    }).catch(() => {
       wx.showToast({
         title: '领取失败',
         icon: 'none'

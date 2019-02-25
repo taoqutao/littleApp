@@ -1,6 +1,6 @@
 <!--pages/task/list.wxml-->
 <view style='overflow-x: hidden;width:100%'>
-  <block wx:for='{{[1, 2]}}'>
+  <block wx:for='{{list}}'>
     <view class='item'>
       <view class='first'>
         <view class='content'>{{item.time}}</view>

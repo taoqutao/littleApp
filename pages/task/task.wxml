@@ -10,7 +10,7 @@
 
   <view class='task-img'>
     <block wx:for="{{categories}}" wx:for-index="idx" wx:for-item="item" wx:key='unique_row'>
-      <view class='img' bindtap='tapCategory'>
+      <view class='img' data-index='{{idx}}' data-id='{{item.platformId}}' bindtap='tapCategory'>
         <image src="{{item.iconUrl}}" mode='aspectFit' class='icon'></image>
         <text>{{item.platformName}}</text>
         <view class='shape' hidden='{{item.platformId != platformId}}'></view>
@@ -20,7 +20,7 @@
   <view class='task-nav'>
     <scroll-view scroll-x scroll-into-view="{{'id_' + taskId}}">
       <block wx:for="{{categories[selectedCategoryIndex].tasks}}" wx:for-index="idx" wx:for-item="item" wx:key='unique_row'>
-        <view class="item {{ item.id == taskId ? 'checked' : ''}}" id="{{'id_' + item.id}}" bindtap='tapTask'>
+        <view class="item {{ item.id == taskId ? 'checked' : ''}}" data-id='{{item.id}}' id="{{'id_' + item.id}}" bindtap='tapTask'>
           <text class='h2'>{{item.name}}</text>
           <text class='h3'>{{'('+ item.number + ')'}}</text>
         </view>
@@ -43,7 +43,7 @@
           <text class='fc-red'>{{item.count}}</text>
           <text>单</text>
         </view>
-        <view class='txt-right fc-red fs24'>即将放出任务，每天整点准时放送</view>
+        <view class='txt-right fc-red fs24' wx:if='{{!item.state}}'>即将放出任务，每天整点准时放送</view>
         <button class="btn {{item.state ? '' : 'btn-grey'}} " id="{{item.id}}" disabled='{{!item.state}}' bindtap='takeTask'>领取任务</button>
       </view>
     </block>
