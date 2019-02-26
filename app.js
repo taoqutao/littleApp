@@ -1,9 +1,13 @@
 const azlog = require('./utils/azlog.js')
-import { ToastPannel } from './component/mytoast/mytoast'
-import {twx} from '/twx/twx.js'
+import {
+  ToastPannel
+} from './component/mytoast/mytoast'
+import {
+  twx
+} from '/twx/twx.js'
 App({
   ToastPannel,
-  onLaunch: function () {
+  onLaunch: function() {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -35,8 +39,18 @@ App({
         }
       }
     })
+    twx.request({
+      url: '/getShowStatus',
+      method: 'GET'
+    }).then((data) => {
+      const {
+        status
+      } = data
+      this.globalData.isOnline = status
+    })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    isOnline: true
   }
 })

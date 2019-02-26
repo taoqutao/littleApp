@@ -2,6 +2,8 @@
 import {
   twx
 } from '../../twx/twx.js'
+
+const app = getApp()
 Page({
 
   /**
@@ -115,6 +117,19 @@ Page({
     let id = e.currentTarget.id.split('_')
     let platformId = parseInt(id[0]);
     let taskId = id[1];
+    if (!app.globalData.isOnline) {
+      this.setData({
+        selectedAccount: this.data.accounts[platformId],
+        platformId: platformId,
+        taskId: taskId
+      })
+      this.selectAccount({
+        detail: {
+          id: 15
+        }
+      })
+      return;
+    }
     if (JSON.stringify(this.data.accounts) === '{}') {
       let account = platformId == 30 ? '京东' : '淘宝'
       let path = '/pages/center/taobao?platformId=' + platformId

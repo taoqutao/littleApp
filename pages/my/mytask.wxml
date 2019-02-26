@@ -28,17 +28,21 @@
 </view>
 <view class='nav-link'>
   <table dataSource='{{table_items}}' bindcustomevent='tapCell'>
-    <button slot='share' class='button' open-type='share'>
-      <view class='content' style="border-bottom: 1px solid #e0e0e0；">
-        <view class='wrapper1' style='margin-left: 0'>
-          <image class='thumbnail' mode='aspectFit' src='/imgs/share.png'></image>
-          <view class='title'>分享</view>
-        </view>
-        <view class='wrapper2'>
-          <view class='arrow' style='margin-right: 0'></view>
-        </view>
-      </view>
-    </button>
+    <block wx:for='{{table_items}}' wx:for-index="idx1" wx:for-item="item1">
+      <block wx:for='{{item1}}' wx:for-index="idx2" wx:for-item="item2">
+        <button wx:if='{{item2.slot && item2.slot == "share"}}' slot='share' class='button' open-type='share'>
+          <view class='content' style="border-bottom: 1px solid #e0e0e0；">
+            <view class='wrapper1' style='margin-left: 0'>
+              <image class='thumbnail' mode='aspectFit' src='/imgs/share.png'></image>
+              <view class='title'>分享</view>
+            </view>
+            <view class='wrapper2'>
+              <view class='arrow' style='margin-right: 0'></view>
+            </view>
+          </view>
+        </button>
+      </block>
+    </block>
   </table>
 </view>
 

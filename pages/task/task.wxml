@@ -28,14 +28,14 @@
     </scroll-view>
   </view>
   <view class='task-list2'>
-    <view class='h1'>
+    <view class='h1' wx:if='{{isOnline}}'>
       注意：禁止私下联系商家，如有商家举报，一经查实，初犯罚款2金币，再犯封号！
     </view>
     <view class='bd mt20'></view>
     <block wx:for="{{taskList}}" wx:for-index="idx" wx:for-item="item" wx:key='item'>
       <view class='item'>
         <view class='h3' style='overflow: hidden;width:80%; text-overflow:ellipsis;white-space: nowrap;'>{{'商品名称：' + item.name}}</view>
-        <view class='h4' style='width: 70%;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;'>{{item.description}}</view>
+        <view class='h4' style='min-height: 40rpx;width: 70%;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;'>{{item.description}}</view>
         <view class='h5'>
           <text class='fc-red fs30 b'>{{item.money}}</text>
           <text class='fc-red'>金币</text>

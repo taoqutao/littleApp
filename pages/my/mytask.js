@@ -2,7 +2,7 @@
 import {
   twx
 } from '../../twx/twx.js'
-
+const app = getApp()
 Page({
 
   /**
@@ -46,7 +46,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    !app.globalData.isOnline && this.setData({
+      table_items: [
+        [{
+          thumbnail: "/imgs/tx.png",
+          title: "提现",
+        }, {
+          thumbnail: "/imgs/alipay.png",
+          title: "绑定支付宝",
+          subTitle: "未绑定"
+        }],
+        [{
+          thumbnail: "/imgs/sz.png",
+          title: "收支明细",
+        }]
+      ]
+    })
   },
 
   /**
@@ -196,7 +211,7 @@ Page({
     })
   },
 
-  bindAccount: function (platformId) {
+  bindAccount: function(platformId) {
     wx.showLoading()
     twx.request({
       url: '/api/user/listAssociateAccount',

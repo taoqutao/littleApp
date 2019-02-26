@@ -439,6 +439,7 @@ text{
 }
 .task-list2 .item .h4{
   font-size: 24rpx;
+  
 }
 .task-list2 .item .h5{
   margin-top: 10rpx;

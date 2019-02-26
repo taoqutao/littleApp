@@ -1,5 +1,7 @@
 // pages/task/task.js
 import twx from '../../twx/twx.js'
+const app = getApp()
+
 Page({
 
   /**
