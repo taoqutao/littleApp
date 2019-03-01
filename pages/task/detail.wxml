@@ -61,19 +61,23 @@
 
   <view class='bd mt20'></view>
   <view class='upload'>
-    <block wx:for='{{imgs}}'>
-      <image class='item' src='{{item}}'></image>
+    <block wx:for='{{info.imgs}}'>
+      <view class='cabinet'>
+        <image wx:if='{{item.img}}' class='item' src='{{item.img}}'></image>
+        <button wx:else class='item btn-upload' bindtap='tapImg' data-index='{{index}}'>+</button>
+        <text>{{item.name}}</text>
+      </view>
     </block>
-    <button class='item btn-upload' bindtap='tapImg'>+</button>
+
   </view>
 </view>
 
-<button class='btn' bindtap='tapSubmit' disabled='{{!imgs.length}}'>确认任务</button>
-<button class='btn outline mt20' bindtap='tapCancel' >放弃任务</button>
+<button class='btn' bindtap='tapSubmit' disabled='{{!fulfilled}}'>确认任务</button>
+<button class='btn outline mt20' bindtap='tapCancel'>放弃任务</button>
 
 
 <view class='model' wx:if='{{showTips}}' catchtap='tapTipWindow'>
-  <view class='bg' ></view>
+  <view class='bg'></view>
   <view class='content fangqi' catchtap>
     <view class='title'>放弃原因</view>
     <view class='body'>

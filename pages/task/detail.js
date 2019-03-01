@@ -11,7 +11,8 @@ Page({
     imgs: [],
     showTips: false,
     tips: ['关键词搜索不到商品', '商品图片与商家不符', '找不到商家直通车商品', '商家未设置优惠券', '上传图片失效'],
-    remark: null
+    remark: null,
+    fulfilled: false
   },
 
   /**
@@ -30,7 +31,11 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    wx.showModal({
+      title: '特别提醒',
+      content: '1.请使用已选择的账号完成任务\n2.不可以任何形式联系卖家，擅自卡筛选条件查找商品，则扣除2金币，情节严重封号！\n3.领取任务3分钟后才可提交，并在30分钟内完成，超时未提交扣除0.5金币！\n 4.请遵守平台规则，有疑问联系客服QQ123070861',
+      showCancel: false
+    })
   },
 
   /**
@@ -87,21 +92,28 @@ Page({
   },
 
   tapImg: function(e) {
+    const {
+      currentTarget: {
+        dataset: {
+          index
+        }
+      }
+    } = e
     wx.chooseImage({
       count: 1, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: (res) => {
         wx.showLoading();
-        this.uploadImage(res.tempFilePaths[0])
+        this.uploadImage(res.tempFilePaths[0], index)
       }
     })
   },
 
-  uploadImage: function(filepath) {
+  uploadImage: function(filepath, index) {
     let that = this
     wx.uploadFile({
-      url: 'https://m.taoqutao.com/file/upload/weixinUpload?module=taskSubmit',
+      url: 'https://t.taoqutao.com/file/upload/weixinUpload?module=taskSubmit',
       filePath: filepath,
       name: 'fileData',
       formData: {
@@ -116,10 +128,15 @@ Page({
             urlPath
           } = {} = {}
         } = res
-        let imgs = this.data.imgs
-        imgs.push(urlPath)
+        let info = this.data.info
+        info.imgs[index].img = urlPath
+        let fulfilled = true
+        info.imgs.map((item)=>{
+          fulfilled = item.img  && fulfilled
+        })
         that.setData({
-          imgs: imgs
+          info,
+          fulfilled
         })
       },
       fail: function(e) {
@@ -159,6 +176,12 @@ Page({
         data.money = rpl(data.money)
         data.taskUserName = rpl(data.taskUserName)
         data.shopName = rpl(data.shopName)
+        data.imgs = data.submitInfoList.map((item, idx) => {
+          return {
+            img: null,
+            name: item
+          }
+        })
         this.setData({
           info: data
         })
@@ -170,12 +193,14 @@ Page({
   },
 
   tapSubmit: function() {
-
-    this.data.imgs.length && (wx.showLoading(), twx.request({
+    let imgs = this.data.info.imgs.map((item, idx) => {
+      return item.img
+    })
+    this.data.fulfilled && (wx.showLoading(), twx.request({
       url: '/api/task/submitTask',
       data: {
         "taskId": this.data.taskId,
-        "images": this.data.imgs.join(',')
+        "images": imgs.join(',')
       }
     }).then((res) => {
       if (res.code) {

@@ -44,7 +44,7 @@ Page({
     }).then(({
       data
     }) => {
-      if (data.code && data.alipay) {
+      if (data.alipay) {
         this.setData({
           account: data.alipay
         })

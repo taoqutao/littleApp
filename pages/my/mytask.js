@@ -25,10 +25,10 @@ Page({
       }],
       [{
           thumbnail: "/imgs/tb.png",
-          title: "绑定淘宝账户",
+          title: "我的淘淘号",
         }, {
           thumbnail: "/imgs/jd.png",
-          title: "绑定京东账户"
+          title: "我的东东号"
         },
         {
           thumbnail: "/imgs/help.png",
@@ -114,7 +114,7 @@ Page({
     return {
       title: '玩手机轻松赚取零花钱',
       path: '/pages/task/index',
-      imageUrl: '/imgs/mini_share.png'
+      imageUrl: '/imgs/miniShare.png'
     }
   },
 
@@ -131,7 +131,7 @@ Page({
       data
     }) => {
       if (data) {
-        cells[0][1].subTitle = data.alipay ? '未绑定' : ''
+        cells[0][1].subTitle = data.alipay || '未绑定';
         this.setData({
           info: data,
           table_items: cells
@@ -148,7 +148,7 @@ Page({
         })
       }
     }).catch((err) => {
-      cells[0][1].subTitle = '未绑定'
+      cells[1][0].subTitle = '未绑定'
       this.setData({
         info: {
           "availableMoney": 0, //可提现金额

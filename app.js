@@ -44,9 +44,12 @@ App({
       method: 'GET'
     }).then((data) => {
       const {
-        status
+        data: {
+          status
+        } = {}
+
       } = data
-      this.globalData.isOnline = status
+      this.globalData.isOnline = parseInt(status)
     })
   },
   globalData: {

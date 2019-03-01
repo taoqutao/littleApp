@@ -1,5 +1,5 @@
 {
-  "enablePullDownRefresh": true,
+  "enablePullDownRefresh": false,
   "onReachBottomDistance": 200,
   "backgroundTextStyle": "black",
   "navigationBarBackgroundColor": "#FF5452",

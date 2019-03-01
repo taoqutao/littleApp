@@ -48,7 +48,7 @@
 }
 .task-nav .item{
   display: inline-block;
-  width: 150rpx;
+  min-width: 150rpx;
   padding: 20rpx 0;
   vertical-align: top;
   text-align: center;

@@ -159,7 +159,7 @@ Page({
   uploadImage: function(filepath, id) {
     let that = this
     wx.uploadFile({
-      url: 'https://m.taoqutao.com/file/upload/weixinUpload?module=bind',
+      url: 'https://t.taoqutao.com/file/upload/weixinUpload?module=bind',
       filePath: filepath,
       name: 'fileData',
       formData: {

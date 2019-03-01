@@ -171,7 +171,7 @@ Page({
   requestCode: function() {
     let that = this
     wx.request({
-      url: 'https://m.taoqutao.com/getVCode',
+      url: 'https://t.taoqutao.com/getVCode',
       method: 'GET',
       success: ({data}) => {
         if (data.code) {

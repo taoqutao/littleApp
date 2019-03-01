@@ -13,14 +13,18 @@ Page({
     platformId: null,
     taskId: null,
     categories: [],
-    selectedCategoryIndex: 0
+    selectedCategoryIndex: 0,
+    isOnline: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData(options)
+    this.setData({
+      ...options,
+      isOnline: app.globalData.isOnline
+    })
 
     this.getData()
   },
@@ -57,7 +61,13 @@ Page({
       method: 'GET'
     }).then((res) => {
       if (res && res.code) {
-        return res.data.map((item, idx) => {
+        return res.data.filter((item, idx) => {
+            if (this.data.platformId == 30) { //京东30 淘宝10 天猫20
+              return item.platformId == this.data.platformId
+            } else {
+              return item.platformId != 30
+            }
+          }).map((item, idx) => {
           let tasks = item.taskTypeList.map((element, index) => {
             return {
               name: element.typeName,

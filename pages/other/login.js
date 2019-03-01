@@ -33,7 +33,8 @@ Page({
       password: password || '',
       checked: password ? true : false
     }) 
-    
+    this.checkInput('phonecode', phone)
+    this.checkInput('password', password)
   },
 
   /**
@@ -185,7 +186,8 @@ Page({
         } else {
           wx.showToast({
             title: res.message,
-            icon: 'none'
+            icon: 'none',
+            duration: 2000
           })
         }
       }).finally(()=>{
