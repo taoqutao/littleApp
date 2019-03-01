@@ -96,6 +96,7 @@ Page({
   tapImage: function(e) {
     var _this = this;
     let id = parseInt(e.target.id)
+    wx.showLoading()
     wx.chooseImage({
       count: 1, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -103,6 +104,9 @@ Page({
       success: function(res) {
         wx.showLoading();
         _this.uploadImage(res.tempFilePaths[0], id)
+      },
+      complete: function() {
+        wx.hideLoading()
       }
     })
   },
@@ -126,13 +130,14 @@ Page({
         if (res.code) {
           wx.showToast({
             title: '绑定成功',
-            icon: 'none'
+            icon: 'none',
+            duration: 2000
           })
           setTimeout(()=>{
             wx.navigateBack({
               delta: 1
             })
-          }, 1000)
+          }, 2000)
         } else {
           wx.showToast({
             title: res.message,
@@ -140,12 +145,13 @@ Page({
           })
         }
       }).catch((err)=>{
+        wx.hideLoading()
         wx.showToast({
           title: '绑定失败',
           icon: 'none'
         })
       }).finally(()=>{
-        wx.hideLoading()
+        
       })
     } else {
       wx.showToast({

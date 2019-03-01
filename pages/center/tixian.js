@@ -104,26 +104,43 @@ Page({
     let value = e.detail.value;
     let name = e.target.dataset.name;
 
-    if (value) {
-      this.setData({
-        money: value
-      })
-    }
+    this.setData({
+      money: value
+    })
   },
 
   submit: function(e) {
     let data = {
       "money": this.data.money
     }
+    wx.showLoading()
     twx.request({
       url: '/api/account/transferCashToAliPay',
       data: data
-    }).then(({
-      data
-    }) => {
-
-    }).finally(() => {
+    }).then((res) => {
+      if (res.code) {
+        wx.hideLoading()
+        wx.showToast({
+          title: '提现成功',
+          icon: 'none',
+          duration: 2000
+        })
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    }).catch(()=>{
       wx.hideLoading()
+      wx.showToast({
+        title: '请求失败',
+        icon: 'none',
+        duration: 2000
+      })
+    }).finally(() => {
+      
     })
 
   }

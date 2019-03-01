@@ -151,6 +151,7 @@ Page({
       },
       data: data
     }).then(function(res) {
+      wx.hideLoading()
       if (res.code) {
         wx.navigateBack({
           delta: 1
@@ -162,9 +163,15 @@ Page({
         })
         that.requestCode()
       }
-      
-    }).finally(()=>{
+    }).catch(()=>{
       wx.hideLoading()
+      wx.showToast({
+        title: '请求错误',
+        icon: 'none'
+      })
+      that.requestCode()
+    }).finally(()=>{
+      
     })
   },
 

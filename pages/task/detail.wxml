@@ -28,7 +28,7 @@
   <view class='bd'></view>
   <view class='txt'>
     <text class='fc-grey mr20'>任务类型： </text>
-    <text>{{info.searchName}}</text>
+    <text>{{info.taskTypeName}}</text>
   </view>
 
   <view class='txt1' bindtap='pressKeyword'>
@@ -39,7 +39,7 @@
 
   <view class='txt'>
     <text class='fc-grey mr20'>筛选：</text>
-    <text>{{info.keyWord}}</text>
+    <text>{{info.searchName}}</text>
   </view>
 
 </view>
@@ -56,14 +56,14 @@
 <view class='form mt20'>
   <view class='h1'>
     上传截图
-    <view class='taobao-info'>我的淘宝账号：21212121</view>
+    <view class='taobao-info'>{{'我的账号：' + info.account}}</view>
   </view>
 
   <view class='bd mt20'></view>
   <view class='upload'>
     <block wx:for='{{info.imgs}}'>
       <view class='cabinet'>
-        <image wx:if='{{item.img}}' class='item' src='{{item.img}}'></image>
+        <image wx:if='{{item.img}}' class='item' src='{{item.img}}' mode='aspectFit'></image>
         <button wx:else class='item btn-upload' bindtap='tapImg' data-index='{{index}}'>+</button>
         <text>{{item.name}}</text>
       </view>
@@ -72,7 +72,7 @@
   </view>
 </view>
 
-<button class='btn' bindtap='tapSubmit' disabled='{{!fulfilled}}'>确认任务</button>
+<button class='btn' bindtap='tapSubmit' disabled='{{!fulfilled}}'>提交任务</button>
 <button class='btn outline mt20' bindtap='tapCancel'>放弃任务</button>
 
 

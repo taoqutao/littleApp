@@ -14,4 +14,4 @@
   </view>
 </view>
 <text class='h1 fc-red mt0 text-center' wx:if='{{money && money <= 0}}'>帐户余额不足</text>
-<button class='btn' bindtap="submit" disabled='account.length > 0 && money.length > 0'>确认提现</button>
+<button class='btn' bindtap="submit" disabled='{{!account.length || !money.length}}'>确认提现</button>

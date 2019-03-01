@@ -8,12 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phonecode:"",
-    password:"",
+    phonecode: "",
+    password: "",
     isInputValidate: 0,
     checked: false,
     _returnpage: '',
-    fromPageType: '',//页面来源类型
+    fromPageType: '', //页面来源类型
   },
 
   /**
@@ -27,12 +27,12 @@ Page({
     let phone = wx.getStorageSync('phonecode_using')
     let password = wx.getStorageSync(phone)
     this.setData({
-      _returnpage : options.returnpage ? decodeURIComponent(options.returnpage) : "",
-      fromPageType : options.fromPageType || '',
+      _returnpage: options.returnpage ? decodeURIComponent(options.returnpage) : "",
+      fromPageType: options.fromPageType || '',
       phonecode: phone || '',
       password: password || '',
       checked: password ? true : false
-    }) 
+    })
     this.checkInput('phonecode', phone)
     this.checkInput('password', password)
   },
@@ -111,7 +111,7 @@ Page({
     }
   },
 
-  checkboxChange: function (e) {
+  checkboxChange: function(e) {
     let checked = !this.data.checked
     if (checked) {
       wx.setStorage({
@@ -148,7 +148,7 @@ Page({
     })
   },
 
-  tapRegister: function (e) {
+  tapRegister: function(e) {
     wx.navigateTo({
       url: '/pages/other/register',
     })
@@ -167,31 +167,33 @@ Page({
         "password": this.data.password
       }
     }).then((res) => {
-        if (res.code) {
-          try {
-            wx.setStorageSync('twxlogin_userId', res.data.userId);
-          } catch (e) {
+
+      wx.hideLoading()
+      if (res.code) {
+        try {
+          wx.setStorageSync('twxlogin_userId', res.data.userId);
+        } catch (e) {}
+        if (_this.data._returnpage) {
+          if (_this.data.fromPageType && _this.data.fromPageType == 'switchTab') {
+            wx.switchTab({
+              url: _this.data._returnpage
+            })
+          } else {
+            wx.redirectTo({
+              url: _this.data._returnpage
+            });
           }
-          if (_this.data._returnpage) {
-            if (_this.data.fromPageType && _this.data.fromPageType == 'switchTab') {
-              wx.switchTab({
-                url: _this.data._returnpage
-              })
-            } else {
-              wx.redirectTo({
-                url: _this.data._returnpage
-              });
-            }
-          }
-        } else {
-          wx.showToast({
-            title: res.message,
-            icon: 'none',
-            duration: 2000
-          })
         }
-      }).finally(()=>{
+      } else {
         wx.hideLoading()
-      })
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    }).finally(() => {
+      wx.hideLoading()
+    })
   }
 })

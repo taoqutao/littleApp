@@ -17,7 +17,8 @@ Page({
     platformId: '',
     taskId: '',
     banners: ['/imgs/bar.jpg', '/imgs/bar2.png'],
-    fromPageLevel: 1
+    fromPageLevel: 1,
+    onGoingTasks: 0
   },
 
   /**
@@ -39,6 +40,7 @@ Page({
    */
   onShow: function() {
     this.request()
+    this.requestTask()
   },
 
   /**
@@ -77,8 +79,17 @@ Page({
   },
 
   requestTask: function() {
-
-
+    twx.request({
+      url: '/api/task/listUserTaskStatus',
+      method: 'GET'
+    }).then((res) => {
+      let onGoingTask = res.data.filter((item) => {
+        return item.statusValue == 10
+      })[0]
+      this.data.onGoingTasks = onGoingTask.taskNum
+    }).finally(() => {
+      wx.hideLoading()
+    })
   },
   request: function() {
     twx.request({
@@ -130,7 +141,7 @@ Page({
       })
       return;
     }
-    if (JSON.stringify(this.data.accounts) === '{}') {
+    if (JSON.stringify(this.data.accounts) === '{}' || !this.data.accounts[platformId]) {
       let account = platformId == 30 ? '京东' : '淘宝'
       let path = '/pages/center/taobao?platformId=' + platformId
       wx.showModal({
@@ -146,6 +157,12 @@ Page({
             })
           }
         }
+      })
+      return;
+    }
+    if (this.data.onGoingTasks > 0) {
+      wx.switchTab({
+        url: '/pages/home/index',
       })
       return;
     }

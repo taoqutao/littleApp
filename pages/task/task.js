@@ -227,6 +227,7 @@ Page({
         account: this.data.accountId
       }
     }).then((data) => {
+      wx.hideLoading()
       if (data && data.code) {
         wx.showToast({
           title: '领取成功',
@@ -242,12 +243,13 @@ Page({
         })
       }
     }).catch(() => {
+      wx.hideLoading()
       wx.showToast({
         title: '领取失败',
         icon: 'none'
       })
     }).finally(() => {
-      wx.hideLoading()
+      
     })
   }
 })
