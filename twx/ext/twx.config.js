@@ -1,7 +1,7 @@
 // twx.config.js 
 var debug = false
 var envConfig = ["production", "stg", "test"];
-var envSelIdx = 1;
+var envSelIdx = 0;
 if (debug) {
   wx.setStorageSync('envSelectedIdx', envSelIdx);
   let storageEnvSelIdx = wx.getStorageSync('envSelectedIdx');

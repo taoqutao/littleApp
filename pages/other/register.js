@@ -142,13 +142,11 @@ Page({
       "mobile": this.data.phonecode,
       "vCode": this.data.captcha,
       "qq": this.data.qqcode,
-      "password": this.data.password
+      "password": this.data.password,
+      "jSessionId": this.data.cookie
     }
     twx.request({
       url: '/api/reg/registerUser',
-      header: {
-        'Cookie': this.data.cookie
-      },
       data: data
     }).then(function(res) {
       wx.hideLoading()
@@ -183,7 +181,8 @@ Page({
       success: ({data}) => {
         if (data.code) {
           that.setData({
-            codeurl: 'data:image/png;base64,'+wx.arrayBufferToBase64(wx.base64ToArrayBuffer(data.data.image))
+            codeurl: 'data:image/png;base64,'+wx.arrayBufferToBase64(wx.base64ToArrayBuffer(data.data.image)),
+            cookie: data.data.jSessionId
           })
         }
       }

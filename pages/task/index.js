@@ -79,7 +79,7 @@ Page({
   },
 
   requestTask: function() {
-    twx.request({
+    twx.isLogin(false) && twx.request({
       url: '/api/task/listUserTaskStatus',
       method: 'GET'
     }).then((res) => {
